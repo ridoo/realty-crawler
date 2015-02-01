@@ -24,7 +24,7 @@ public class Crawler {
 			String preparedContent = preprocessContent(is);
 			preparedContent = preparedContent.replace("<!-------", "<!--").replace("------>", "-->").replace("&", "&amp;");
 			
-			logger.info("Parsing content: "+preparedContent);
+			logger.debug("Parsing content: "+preparedContent);
 			return parseDom(new ByteArrayInputStream(preparedContent.getBytes()));
 		} catch (XPathExpressionException | IOException | XmlException e) {
 			logger.warn(e.getMessage(), e);

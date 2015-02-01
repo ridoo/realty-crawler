@@ -16,9 +16,9 @@ public class CrawlerTest {
 		
 		Assert.assertTrue(items.size() == 2);
 		
-		for (String key : items.keySet()) {
-			System.out.println(key +"="+items.get(key));
-		}
+		Ad first = items.values().iterator().next();
+		
+		Assert.assertTrue(first.getProperties().get(Ad.PropertyKeys.IMAGE).equals("http://rub-media.westfaelische-nachrichten.de/media/18724/21531138954563/wna_7617893.jpg"));
 	}
 
 }
