@@ -39,8 +39,12 @@ public class CrawlerTest {
 		Assert.assertTrue(items.size() == 2);
 		
 		Ad first = items.values().iterator().next();
+
+		String img = first.getProperties().get(Ad.PropertyKeys.IMAGE);
 		
-		Assert.assertTrue(first.getProperties().get(Ad.PropertyKeys.IMAGE).equals("http://rub-media.westfaelische-nachrichten.de/media/18724/21531138954563/wna_7617893.jpg"));
+		Assert.assertTrue(img.equals("http://rub-media.westfaelische-nachrichten.de/media/18724/21531138954563/wna_7617893.jpg") ||
+				img.equals("http://rub-media.westfaelische-nachrichten.de/media/18719/88286312783062/wna_7616825.jpg"));
+
 	}
 
 }
