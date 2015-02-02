@@ -16,16 +16,21 @@
 package com.github.matthesrieke.realty.storage;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
+
+import org.joda.time.DateTime;
 
 import com.github.matthesrieke.realty.Ad;
 
 public interface Storage {
 
-	Map<String, Ad> storeItemsAndProvideNew(Map<String, Ad> items);
+	List<Ad> storeItemsAndProvideNew(List<Ad> items);
 
-	Map<String, Ad> getAllItems() throws IOException;
+	List<Ad> getAllItems() throws IOException;
 
 	void shutdown();
+
+	Map<DateTime, List<Ad>> getItemsGroupedByDate() throws IOException;
 	
 }

@@ -16,7 +16,7 @@
 package com.github.matthesrieke.realty.crawler;
 
 import java.io.IOException;
-import java.util.Map;
+import java.util.List;
 
 import com.github.matthesrieke.realty.Ad;
 
@@ -26,7 +26,7 @@ public interface Crawler {
 
 	boolean supportsParsing(String url);
 
-	Map<String, Ad> parseDom(StringBuilder content) throws IOException;
+	List<Ad> parseDom(StringBuilder content) throws IOException;
 
 	int getFirstPageIndex();
 

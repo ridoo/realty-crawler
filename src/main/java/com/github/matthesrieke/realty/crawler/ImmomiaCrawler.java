@@ -17,9 +17,7 @@ package com.github.matthesrieke.realty.crawler;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.namespace.QName;
 
@@ -67,8 +65,8 @@ public class ImmomiaCrawler implements Crawler {
 	}
 
 	@Override
-	public Map<String, Ad> parseDom(StringBuilder is) throws IOException {
-		Map<String, Ad> result = new HashMap<>();
+	public List<Ad> parseDom(StringBuilder is) throws IOException {
+		List<Ad> result = new ArrayList<>();
 		
 		XmlObject xbean;
 		try {
@@ -91,7 +89,7 @@ public class ImmomiaCrawler implements Crawler {
 		for (int i = 0; i < elems.length; i++) {
 			Ad entry = fromNode(elems[i]);
 			entry.setDateTime(crawlTime);
-			result.put(entry.getId(), entry);
+			result.add(entry);
 		}
 		
 		return result;

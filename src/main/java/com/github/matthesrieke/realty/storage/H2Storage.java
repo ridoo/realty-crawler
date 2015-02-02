@@ -26,9 +26,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,12 +63,12 @@ public class H2Storage implements Storage {
 	}
 
 	@Override
-	public Map<String, Ad> storeItemsAndProvideNew(Map<String, Ad> items) {
-		Map<String, Ad> result = new HashMap<>();
+	public List<Ad> storeItemsAndProvideNew(List<Ad> items) {
+		List<Ad> result = new ArrayList<>();
 		
-		for (String key : items.keySet()) {
-			if (!checkIfExistingAndInsert(key, items.get(key))) {
-				result.put(key, items.get(key));
+		for (Ad key : items) {
+			if (!checkIfExistingAndInsert(key.getId(), key)) {
+				result.add(key);
 			}
 		}
 		
@@ -188,22 +191,24 @@ public class H2Storage implements Storage {
 	}
 
 	@Override
-	public Map<String, Ad> getAllItems() throws IOException {
+	public List<Ad> getAllItems() throws IOException {
 		try {
 			Statement stmt = this.connection.createStatement();
 			StringBuilder sb = new StringBuilder();
 			sb.append("SELECT * from ");
 			sb.append(TABLE_NAME);
+			sb.append(" ORDER BY ");
+			sb.append(TIMESTAMP_COLUMN);
 			stmt.execute(sb.toString());
 			
 			ResultSet rs = stmt.getResultSet();
 			
-			Map<String, Ad> result = new HashMap<>();
+			List<Ad> result = new ArrayList<>();
 			while (rs.next()) {
 				String id = rs.getString(ID_COLUMN);
 				InputStream data = rs.getBinaryStream(DATA_COLUMN);
 				if (id != null && data != null) {
-					result.put(id, Util.deserialize(data, Ad.class));
+					result.add(Util.deserialize(data, Ad.class));
 				}
 			}
 			stmt.close();
@@ -214,6 +219,23 @@ public class H2Storage implements Storage {
 			throw new IOException(e);
 		}
 		
+	}
+	
+	@Override
+	public Map<DateTime, List<Ad>> getItemsGroupedByDate() throws IOException {
+		Map<DateTime, List<Ad>> result = new HashMap<>();
+		
+		List<Ad> items = getAllItems();
+		
+		for (Ad ad : items) {
+			DateTime ts = ad.getDateTime();
+			if (!result.containsKey(ts)) {
+				result.put(ts, new ArrayList<Ad>());
+			}
+			result.get(ts).add(ad);
+		}
+		
+		return result;
 	}
 
 	@Override

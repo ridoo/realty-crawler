@@ -15,7 +15,7 @@
  */
 package com.github.matthesrieke.realty.notification;
 
-import java.util.Map;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,8 +28,8 @@ public class EmailNotification implements Notification {
 			.getLogger(EmailNotification.class);
 	
 	@Override
-	public void notifyOnNewItems(Map<String, Ad> newItems) {
-		for (Ad a : newItems.values()) {
+	public void notifyOnNewItems(List<Ad> newItems) {
+		for (Ad a : newItems) {
 			logger.info(a.toString());
 		}
 	}

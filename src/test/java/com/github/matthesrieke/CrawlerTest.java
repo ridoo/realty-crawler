@@ -17,7 +17,7 @@ package com.github.matthesrieke;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Map;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -34,11 +34,11 @@ public class CrawlerTest {
 	public void testCrawling() throws CrawlerException, IOException {
 		InputStream is = getClass().getResourceAsStream("/test2.html");
 		Crawler crawler = new ImmomiaCrawler();
-		Map<String, Ad> items = crawler.parseDom(crawler.preprocessContent(Util.parseStream(is)));
+		List<Ad> items = crawler.parseDom(crawler.preprocessContent(Util.parseStream(is)));
 		
 		Assert.assertTrue(items.size() == 2);
 		
-		Ad first = items.values().iterator().next();
+		Ad first = items.get(0);
 
 		String img = first.getProperties().get(Ad.PropertyKeys.IMAGE);
 		

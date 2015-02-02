@@ -18,6 +18,8 @@ package com.github.matthesrieke.realty;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.ServiceLoader;
@@ -35,6 +37,7 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,12 +61,14 @@ public class CrawlerServlet extends HttpServlet {
 	private ArrayList<Crawler> crawlers;
 	private Storage storage = new H2Storage();
 	private StringBuilder listTemplate;
+	private StringBuilder groupTemplate;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
 
-		this.listTemplate = Util.parseStream(getClass().getResourceAsStream("list-template.html"));
+		this.listTemplate = Util.parseStream(getClass().getResourceAsStream("index-template.html"));
+		this.groupTemplate = Util.parseStream(getClass().getResourceAsStream("group-template.html"));
 		
 		this.properties = new Properties();
 		InputStream is = getClass().getResourceAsStream("/config.properties");
@@ -96,7 +101,7 @@ public class CrawlerServlet extends HttpServlet {
 					} catch (UnsupportedBaseLinkException e1) {
 						logger.warn(e1.getMessage(), e1);
 						return;
-					}					
+					}
 					
 					String link;
 					int page = crawler.getFirstPageIndex();
@@ -113,7 +118,7 @@ public class CrawlerServlet extends HttpServlet {
 							if (resp.getStatusLine().getStatusCode() < HttpStatus.SC_MULTIPLE_CHOICES) {
 								InputStream content = resp.getEntity().getContent();
 								
-								Map<String, Ad> items = parse(content, crawler);
+								List<Ad> items = parse(content, crawler);
 								if (items == null || items.size() == 0) {
 									break;
 								}
@@ -145,7 +150,7 @@ public class CrawlerServlet extends HttpServlet {
 		}
 	}
 
-	private Map<String, Ad> parse(InputStream is, Crawler crawler) throws CrawlerException {
+	private List<Ad> parse(InputStream is, Crawler crawler) throws CrawlerException {
 		try {
 			StringBuilder sb = Util.parseStream(is);
 			sb = crawler.preprocessContent(sb);
@@ -173,7 +178,7 @@ public class CrawlerServlet extends HttpServlet {
 			throws ServletException, IOException {
 		resp.setContentType("text/html");
 		
-		String itemsMarkup = createItemsMarkup();
+		String itemsMarkup = createGroupedItemsMarkup();
 		String content = this.listTemplate.toString().replace("${entries}",
 				itemsMarkup);
 		
@@ -187,11 +192,11 @@ public class CrawlerServlet extends HttpServlet {
 		resp.getOutputStream().flush();
 	}
 
-	private String createItemsMarkup() {
-		Map<String, Ad> items;
+	private String createGroupedItemsMarkup() {
+		Map<DateTime, List<Ad>> items;
 		StringBuilder sb = new StringBuilder();
 		try {
-			items = this.storage.getAllItems();
+			items = this.storage.getItemsGroupedByDate();
 		} catch (IOException e) {
 			logger.warn("Retrieval of items failed.", e);
 			sb.append("Retrieval of items failed.");
@@ -199,8 +204,16 @@ public class CrawlerServlet extends HttpServlet {
 			return sb.toString();
 		}
 		
-		for (Ad a : items.values()) {
-			sb.append(a.toHTML());
+		List<DateTime> sortedKeys = new ArrayList<DateTime>(items.keySet());
+		Collections.sort(sortedKeys);
+		for (DateTime a : sortedKeys) {
+			StringBuilder adsBuilder = new StringBuilder();
+			List<Ad> ads = items.get(a);
+			for (Ad ad : ads) {
+				adsBuilder.append(ad.toHTML());
+			}
+			sb.append(this.groupTemplate.toString().replace("${GROUP_DATE}", a.toString())
+					.replace("${entries}", adsBuilder.toString()));
 		}
 		
 		return sb.toString();
@@ -216,11 +229,12 @@ public class CrawlerServlet extends HttpServlet {
 	}
 	
 
-	protected void compareAndStoreItems(Map<String, Ad> items) {
-		Map<String, Ad> newItems = this.storage.storeItemsAndProvideNew(items);
+	protected void compareAndStoreItems(List<Ad> items) {
+		List<Ad> newItems = this.storage.storeItemsAndProvideNew(items);
 		if (newItems != null && newItems.size() > 0) {
 			this.notification.notifyOnNewItems(newItems);
 		}
 	}
 	
 }
+
