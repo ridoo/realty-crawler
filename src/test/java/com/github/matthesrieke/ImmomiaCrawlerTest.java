@@ -28,11 +28,11 @@ import com.github.matthesrieke.realty.Util;
 import com.github.matthesrieke.realty.crawler.Crawler;
 import com.github.matthesrieke.realty.crawler.ImmomiaCrawler;
 
-public class CrawlerTest {
+public class ImmomiaCrawlerTest {
 	
 	@Test
 	public void testCrawling() throws CrawlerException, IOException {
-		InputStream is = getClass().getResourceAsStream("/test2.html");
+		InputStream is = getClass().getResourceAsStream("/immomia.html");
 		Crawler crawler = new ImmomiaCrawler();
 		List<Ad> items = crawler.parseDom(crawler.preprocessContent(Util.parseStream(is)));
 		

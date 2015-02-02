@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Scanner;
 import java.util.ServiceLoader;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -62,6 +63,7 @@ public class CrawlerServlet extends HttpServlet {
 	private Storage storage = new H2Storage();
 	private StringBuilder listTemplate;
 	private StringBuilder groupTemplate;
+	private List<String> crawlLinks = new ArrayList<>();
 
 	@Override
 	public void init() throws ServletException {
@@ -84,6 +86,8 @@ public class CrawlerServlet extends HttpServlet {
 		
 		initializeCrawlers();
 		
+		readCrawlingLinks();
+		
 		this.timer = new Timer();
 		
 		this.timer.scheduleAtFixedRate(new TimerTask() {
@@ -91,48 +95,53 @@ public class CrawlerServlet extends HttpServlet {
 			@Override
 			public void run() {
 				logger.info("Starting to parse ad entries...");
+				DateTime now = new DateTime();
 				try {
-					String baseLink = properties.getProperty("baselink");
-					logger.info("Baselink = "+properties.getProperty("baselink"));
-					
-					Crawler crawler;
-					try {
-						crawler = resolveCrawler(baseLink);
-					} catch (UnsupportedBaseLinkException e1) {
-						logger.warn(e1.getMessage(), e1);
-						return;
-					}
-					
-					String link;
-					int page = crawler.getFirstPageIndex();
-					while (true) {
-						logger.info("Parsing page "+page);
+					for (String baseLink : crawlLinks) {
+						logger.info("Baselink = "+baseLink);
 						
-						link = crawler.prepareLinkForPage(baseLink, page);
-						HttpGet get = new HttpGet(link);
-						page++;
-						
-						CloseableHttpClient client = HttpClientBuilder.create().setDefaultRequestConfig(RequestConfig.custom().setConnectTimeout(20000).build()).build();
+						Crawler crawler;
 						try {
-							CloseableHttpResponse resp = client.execute(get);
-							if (resp.getStatusLine().getStatusCode() < HttpStatus.SC_MULTIPLE_CHOICES) {
-								InputStream content = resp.getEntity().getContent();
-								
-								List<Ad> items = parse(content, crawler);
-								if (items == null || items.size() == 0) {
+							crawler = resolveCrawler(baseLink);
+						} catch (UnsupportedBaseLinkException e1) {
+							logger.warn(e1.getMessage(), e1);
+							break;
+						}
+						
+						String link;
+						int page = crawler.getFirstPageIndex();
+						while (true) {
+							logger.info("Parsing page "+page);
+							
+							link = crawler.prepareLinkForPage(baseLink, page);
+							HttpGet get = new HttpGet(link);
+							page++;
+							
+							CloseableHttpClient client = HttpClientBuilder.create().setDefaultRequestConfig(RequestConfig.custom().setConnectTimeout(20000).build()).build();
+							try {
+								CloseableHttpResponse resp = client.execute(get);
+								if (resp.getStatusLine().getStatusCode() < HttpStatus.SC_MULTIPLE_CHOICES) {
+									InputStream content = resp.getEntity().getContent();
+									
+									List<Ad> items = parse(content, crawler);
+									if (items == null || items.size() == 0) {
+										break;
+									}
+									
+									compareAndStoreItems(items, now);
+									
+								}
+								else {
 									break;
 								}
-								
-								compareAndStoreItems(items);
-								
+							} catch (IOException | CrawlerException e) {
+								logger.warn(e.getMessage(), e);
 							}
-						} catch (IOException | CrawlerException e) {
-							logger.warn(e.getMessage(), e);
+		
 						}
-	
+											
+						logger.info("finished parsing ad entries!");
 					}
-										
-					logger.info("finished parsing ad entries!");
 				}
 				catch (RuntimeException e) {
 					logger.warn(e.getMessage(), e);
@@ -141,6 +150,17 @@ public class CrawlerServlet extends HttpServlet {
 		}, 0, 1000 * 60 * 60 * 4);
 	}
 	
+	private void readCrawlingLinks() {
+		InputStream is = getClass().getResourceAsStream("/links.txt");
+		if (is != null) {
+			Scanner sc = new Scanner(is);
+			while (sc.hasNext()) {
+				this.crawlLinks .add(sc.nextLine().trim());
+			}
+			sc.close();
+		}
+	}
+
 	private void initializeCrawlers() {
 		ServiceLoader<Crawler> loader = ServiceLoader.load(Crawler.class);
 		
@@ -206,6 +226,7 @@ public class CrawlerServlet extends HttpServlet {
 		
 		List<DateTime> sortedKeys = new ArrayList<DateTime>(items.keySet());
 		Collections.sort(sortedKeys);
+		Collections.reverse(sortedKeys);
 		for (DateTime a : sortedKeys) {
 			StringBuilder adsBuilder = new StringBuilder();
 			List<Ad> ads = items.get(a);
@@ -229,7 +250,11 @@ public class CrawlerServlet extends HttpServlet {
 	}
 	
 
-	protected void compareAndStoreItems(List<Ad> items) {
+	protected void compareAndStoreItems(List<Ad> items, DateTime now) {
+		for (Ad ad : items) {
+			ad.setDateTime(now);
+		}
+		
 		List<Ad> newItems = this.storage.storeItemsAndProvideNew(items);
 		if (newItems != null && newItems.size() > 0) {
 			this.notification.notifyOnNewItems(newItems);

@@ -97,7 +97,7 @@ public class ImmomiaCrawler implements Crawler {
 
 	private Ad fromNode(XmlObject elems) {
 		XmlObject[] title = Util.selectPath(".//div[@class=\"title-holder\"]/a", elems);
-		Ad result = Ad.forId(parseResults(title, "href"));
+		Ad result = Ad.forId("http://www.wn-immo.de".concat(Util.parseAttribute(title, "href")));
 		result.setNode(elems);
 		
 		XmlObject[] features = Util.selectPath(".//div[@class=\"feature-tags\"]/span", elems);
@@ -194,15 +194,6 @@ public class ImmomiaCrawler implements Crawler {
 		return result;
 	}
 
-	private static String parseResults(XmlObject[] title, String attribute) {
-		if (title != null && title.length > 0) {
-			XmlCursor cur = title[0].newCursor();
-			String result = cur.getAttributeText(new QName("", "href"));
-			cur.dispose();
-			return result;
-		}
-		return null;
-	}
 
 	@Override
 	public int getFirstPageIndex() {

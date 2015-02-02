@@ -22,6 +22,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
+import javax.xml.namespace.QName;
+
+import org.apache.xmlbeans.XmlCursor;
 import org.apache.xmlbeans.XmlObject;
 import org.apache.xmlbeans.XmlOptions;
 import org.apache.xmlbeans.impl.store.Path;
@@ -78,6 +81,16 @@ public class Util {
 			}
 		}
 		
+	}
+	
+	public static String parseAttribute(XmlObject[] title, String attribute) {
+		if (title != null && title.length > 0) {
+			XmlCursor cur = title[0].newCursor();
+			String result = cur.getAttributeText(new QName("", "href"));
+			cur.dispose();
+			return result;
+		}
+		return null;
 	}
 	
 	public static <T> byte[] serialize(T object) throws IOException {

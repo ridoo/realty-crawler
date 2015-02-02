@@ -17,6 +17,7 @@ package com.github.matthesrieke.realty;
 
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,12 +42,12 @@ public class Ad implements Serializable {
 	}
 
 	private String id;
-	private List<String> featureList;
+	private List<String> featureList = new ArrayList<>();
 	private Map<PropertyKeys, String> properties = new HashMap<>();
 	private DateTime dateTime;
 
 	public enum PropertyKeys {
-		LOCATION, SPACE, ROOMS, PRICE, FEATURES, AVAILABLE_FROM, SELLER_TYPE, IMAGE, DATETIME, ID
+		LOCATION, SPACE, ROOMS, PRICE, FEATURES, AVAILABLE_FROM, SELLER_TYPE, IMAGE, DATETIME, ID, DESCRIPTION
 	}
 
 	private Ad() {
