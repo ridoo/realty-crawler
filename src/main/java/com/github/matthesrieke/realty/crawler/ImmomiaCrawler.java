@@ -1,4 +1,4 @@
-package com.github.matthesrieke.crawler;
+package com.github.matthesrieke.realty.crawler;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,12 +12,13 @@ import org.apache.xmlbeans.XmlCursor;
 import org.apache.xmlbeans.XmlException;
 import org.apache.xmlbeans.XmlObject;
 import org.apache.xmlbeans.XmlCursor.TokenType;
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.matthesrieke.Ad;
-import com.github.matthesrieke.Util;
-import com.github.matthesrieke.Ad.PropertyKeys;
+import com.github.matthesrieke.realty.Ad;
+import com.github.matthesrieke.realty.Util;
+import com.github.matthesrieke.realty.Ad.PropertyKeys;
 
 public class ImmomiaCrawler implements Crawler {
 	
@@ -70,8 +71,11 @@ public class ImmomiaCrawler implements Crawler {
 		
 		XmlObject[] elems = xbean.selectChildren(new QName("tr"));
 		
+		DateTime crawlTime = new DateTime();
+		
 		for (int i = 0; i < elems.length; i++) {
 			Ad entry = fromNode(elems[i]);
+			entry.setDateTime(crawlTime);
 			result.put(entry.getId(), entry);
 		}
 		

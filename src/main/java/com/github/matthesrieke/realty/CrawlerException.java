@@ -1,4 +1,4 @@
-package com.github.matthesrieke;
+package com.github.matthesrieke.realty;
 
 public class CrawlerException extends Exception {
 

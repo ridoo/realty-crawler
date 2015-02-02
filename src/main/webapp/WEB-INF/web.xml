@@ -2,7 +2,7 @@
 	<display-name>Realty Crawler</display-name>
 	<servlet>
 		<servlet-name>CrawlerServlet</servlet-name>
-		<servlet-class>com.github.matthesrieke.CrawlerServlet</servlet-class>
+		<servlet-class>com.github.matthesrieke.realty.CrawlerServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 

@@ -1,4 +1,4 @@
-package com.github.matthesrieke;
+package com.github.matthesrieke.realty;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,6 +11,8 @@ import java.util.TimerTask;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.http.HttpStatus;
 import org.apache.http.client.config.RequestConfig;
@@ -21,7 +23,11 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.matthesrieke.crawler.Crawler;
+import com.github.matthesrieke.realty.crawler.Crawler;
+import com.github.matthesrieke.realty.notification.EmailNotification;
+import com.github.matthesrieke.realty.notification.Notification;
+import com.github.matthesrieke.realty.storage.H2Storage;
+import com.github.matthesrieke.realty.storage.Storage;
 
 public class CrawlerServlet extends HttpServlet {
 
@@ -31,14 +37,19 @@ public class CrawlerServlet extends HttpServlet {
 	private static final long serialVersionUID = -2548657318153366650L;
 	private static final Logger logger = LoggerFactory
 			.getLogger(CrawlerServlet.class);
+	private final Notification notification = new EmailNotification();
 	private Timer timer;
 	private Properties properties;
 	private ArrayList<Crawler> crawlers;
+	private Storage storage = new H2Storage();
+	private StringBuilder listTemplate;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
 
+		this.listTemplate = Util.parseStream(getClass().getResourceAsStream("list-template.html"));
+		
 		this.properties = new Properties();
 		InputStream is = getClass().getResourceAsStream("/config.properties");
 		if (is == null) {
@@ -78,8 +89,9 @@ public class CrawlerServlet extends HttpServlet {
 						logger.info("Parsing page "+page);
 						
 						link = crawler.prepareLinkForPage(baseLink, page);
-						
 						HttpGet get = new HttpGet(link);
+						page++;
+						
 						CloseableHttpClient client = HttpClientBuilder.create().setDefaultRequestConfig(RequestConfig.custom().setConnectTimeout(20000).build()).build();
 						try {
 							CloseableHttpResponse resp = client.execute(get);
@@ -92,7 +104,7 @@ public class CrawlerServlet extends HttpServlet {
 								}
 								
 								compareAndStoreItems(items);
-								page++;
+								
 							}
 						} catch (IOException | CrawlerException e) {
 							logger.warn(e.getMessage(), e);
@@ -106,7 +118,7 @@ public class CrawlerServlet extends HttpServlet {
 					logger.warn(e.getMessage(), e);
 				}
 			}
-		}, 0, 1000 * 60 * 60 * 12);
+		}, 0, 1000 * 60 * 60 * 4);
 	}
 	
 	private void initializeCrawlers() {
@@ -140,17 +152,59 @@ public class CrawlerServlet extends HttpServlet {
 		
 		throw new UnsupportedBaseLinkException("No crawler available for baselink: "+baseLink);
 	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		resp.setContentType("text/html");
+		
+		String itemsMarkup = createItemsMarkup();
+		String content = this.listTemplate.toString().replace("${entries}",
+				itemsMarkup);
+		
+		byte[] bytes = content.getBytes("UTF-8");
+		
+		resp.setContentLength(bytes.length);
+		resp.setCharacterEncoding("UTF-8");
+		resp.setStatus(HttpStatus.SC_OK);
+		
+		resp.getOutputStream().write(bytes);
+		resp.getOutputStream().flush();
+	}
+
+	private String createItemsMarkup() {
+		Map<String, Ad> items;
+		StringBuilder sb = new StringBuilder();
+		try {
+			items = this.storage.getAllItems();
+		} catch (IOException e) {
+			logger.warn("Retrieval of items failed.", e);
+			sb.append("Retrieval of items failed.");
+			sb.append(e);
+			return sb.toString();
+		}
+		
+		for (Ad a : items.values()) {
+			sb.append(a.toHTML());
+		}
+		
+		return sb.toString();
+	}
 
 	@Override
 	public void destroy() {
 		super.destroy();
 		
 		this.timer.cancel();
+		this.storage.shutdown();
+		this.notification.shutdown();
 	}
+	
 
 	protected void compareAndStoreItems(Map<String, Ad> items) {
-		for (Ad a : items.values()) {
-			logger.info(a.toString());
+		Map<String, Ad> newItems = this.storage.storeItemsAndProvideNew(items);
+		if (newItems != null && newItems.size() > 0) {
+			this.notification.notifyOnNewItems(newItems);
 		}
 	}
 	

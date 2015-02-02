@@ -7,8 +7,11 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.github.matthesrieke.crawler.Crawler;
-import com.github.matthesrieke.crawler.ImmomiaCrawler;
+import com.github.matthesrieke.realty.Ad;
+import com.github.matthesrieke.realty.CrawlerException;
+import com.github.matthesrieke.realty.Util;
+import com.github.matthesrieke.realty.crawler.Crawler;
+import com.github.matthesrieke.realty.crawler.ImmomiaCrawler;
 
 public class CrawlerTest {
 	

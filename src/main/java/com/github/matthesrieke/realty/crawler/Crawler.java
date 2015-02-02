@@ -1,9 +1,9 @@
-package com.github.matthesrieke.crawler;
+package com.github.matthesrieke.realty.crawler;
 
 import java.io.IOException;
 import java.util.Map;
 
-import com.github.matthesrieke.Ad;
+import com.github.matthesrieke.realty.Ad;
 
 public interface Crawler {
 
