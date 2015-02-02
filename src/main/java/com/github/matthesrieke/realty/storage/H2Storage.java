@@ -133,7 +133,7 @@ public class H2Storage implements Storage {
 	protected void initialize(File baseLocation) throws Exception {
 		Class.forName("org.h2.Driver");
 
-		String connString = "jdbc:h2:" + baseLocation.getAbsolutePath() + "/"
+		String connString = "jdbc:h2:" + resolveFavoritePath(baseLocation) + "/"
 				+ DB_FILE;
 
 		logger.info("connecting to database: "+ connString);
@@ -146,6 +146,19 @@ public class H2Storage implements Storage {
 			logger.warn("database in an illegal state", e.getMessage());
 			createTable();
 		}
+	}
+
+
+	private String resolveFavoritePath(File baseLocation) {
+		String home = System.getProperty("user.home");
+		File homeFile = new File(home);
+		File realtyDir = new File(homeFile, ".realty-crawler");
+		if (!realtyDir.exists()) {
+			if (!realtyDir.mkdir()) {
+				return baseLocation.getAbsolutePath();
+			}
+		}
+		return realtyDir.getAbsolutePath();
 	}
 
 	private void createTable() throws SQLException {
