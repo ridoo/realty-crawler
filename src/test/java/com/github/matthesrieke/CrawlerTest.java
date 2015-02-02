@@ -1,18 +1,22 @@
 package com.github.matthesrieke;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.github.matthesrieke.crawler.Crawler;
+import com.github.matthesrieke.crawler.ImmomiaCrawler;
+
 public class CrawlerTest {
 	
 	@Test
-	public void testCrawling() throws CrawlerException {
+	public void testCrawling() throws CrawlerException, IOException {
 		InputStream is = getClass().getResourceAsStream("/test2.html");
-		Crawler crawler = new Crawler();
-		Map<String, Ad> items = crawler.parse(is);
+		Crawler crawler = new ImmomiaCrawler();
+		Map<String, Ad> items = crawler.parseDom(crawler.preprocessContent(Util.parseStream(is)));
 		
 		Assert.assertTrue(items.size() == 2);
 		

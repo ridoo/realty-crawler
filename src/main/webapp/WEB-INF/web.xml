@@ -1,5 +1,5 @@
 <web-app version="2.5">
-	<display-name>Immomia Crawler</display-name>
+	<display-name>Realty Crawler</display-name>
 	<servlet>
 		<servlet-name>CrawlerServlet</servlet-name>
 		<servlet-class>com.github.matthesrieke.CrawlerServlet</servlet-class>

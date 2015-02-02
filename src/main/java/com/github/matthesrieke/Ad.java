@@ -2,16 +2,11 @@ package com.github.matthesrieke;
 
 import java.io.InputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.namespace.QName;
-
-import org.apache.xmlbeans.XmlCursor;
 import org.apache.xmlbeans.XmlObject;
-import org.apache.xmlbeans.XmlCursor.TokenType;
 import org.joda.time.DateTime;
 
 public class Ad implements Serializable {
@@ -97,137 +92,17 @@ public class Ad implements Serializable {
 	public String toHTML() {
 		String result = htmlTemplate;
 		
+		StringBuilder tmpsb = new StringBuilder("${");
 		for (PropertyKeys key : properties.keySet()) {
-			result = result.replace("${"+key.toString()+"}", properties.get(key));
+			tmpsb.append(key.toString());
+			tmpsb.append("}");
+			result = result.replace(tmpsb.toString(), properties.get(key));
+			tmpsb.delete(2, tmpsb.length());
 		}
 		
 		return result;
 	}
 	
-	public static Ad fromNode(XmlObject elems) {
-		Ad result = new Ad();
-		result.setNode(elems);
-		XmlObject[] title = Util.selectPath(".//div[@class=\"title-holder\"]/a", elems);
-		result.id = parseResults(title, "href");
-		result.properties.put(PropertyKeys.ID, result.id);
-		
-		XmlObject[] features = Util.selectPath(".//div[@class=\"feature-tags\"]/span", elems);
-		result.featureList = parseFeatures(features);
-		
-		StringBuilder sb = new StringBuilder();
-		for (String f : result.featureList) {
-			sb.append(f);
-			sb.append(", ");
-		}
-		if (result.featureList != null && result.featureList.size() > 0) {
-			sb.delete(sb.length()-2, sb.length());
-		}
-		result.properties.put(PropertyKeys.FEATURES, sb.toString());
-		
-		XmlObject[] specs = Util.selectPath(".//div[@class=\"spec-table-wrapper\"]//tr", elems);
-		parseSpecs(specs, result);
-		
-		XmlObject[] imgs = Util.selectPath(".//div[@class=\"image-wrapper\"]//a", elems);
-		result.properties.put(PropertyKeys.IMAGE, parseImage(imgs));
-		
-		XmlObject[] seller = Util.selectPath(".//td[@class=\"sellername-wrapper\"]//div", elems);
-		result.properties.put(PropertyKeys.SELLER_TYPE, parseSeller(seller));
-		
-		result.dateTime = new DateTime();
-		result.properties.put(PropertyKeys.DATETIME, result.dateTime.toString());
-		
-		return result;
-	}
-
-	private static String parseSeller(XmlObject[] seller) {
-		if (seller != null && seller.length > 0) {
-			XmlCursor cur = seller[0].newCursor();
-			if (cur.toFirstContentToken() == TokenType.TEXT) {
-				return cur.getChars();
-			}
-		}
-		return null;
-	}
-
-	private static String parseImage(XmlObject[] imgs) {
-		for (XmlObject img : imgs) {
-			XmlObject[] imgSrc = Util.selectPath(".//img/@src", img);
-			if (imgSrc != null && imgSrc.length > 0) {
-				XmlCursor cur = imgSrc[0].newCursor();
-				cur.toFirstContentToken();
-				String result = cur.getTextValue();
-				if (result != null && result.length() > 0) {
-					return result;
-				}
-			}
-		}
-		return null;
-	}
-
-	private static void parseSpecs(XmlObject[] specs, Ad result) {
-		for (XmlObject xo : specs) {
-			XmlObject[] parameters = Util.selectPath(".//td", xo);
-			String value = null;
-			String key = null;
-			for (XmlObject param : parameters) {
-				XmlObject att = param.selectAttribute(new QName("", "class"));
-				if (att != null && att.xmlText().contains("spec-value-small")) {
-					XmlCursor cur = param.newCursor();
-					cur.toFirstContentToken();
-					value = cur.getChars();
-				}
-				else {
-					XmlCursor cur = param.newCursor();
-					cur.toFirstContentToken();
-					key = cur.getChars();
-				}
-				
-				if (key != null && value != null) {
-					setKey(key, value, result);
-				}
-			}
-		}
-	}
-
-	private static void setKey(String key, String value, Ad result) {
-		if (key.equals("Kaltmiete")) {
-			result.properties.put(PropertyKeys.PRICE, value);
-		}
-		else if (key.contains("Zimmer")) {
-			result.properties.put(PropertyKeys.ROOMS, value);
-		}
-		else if (key.contains("fläche")) {
-			result.properties.put(PropertyKeys.SPACE, value);
-		}
-		else if (key.contains("Ort")) {
-			result.properties.put(PropertyKeys.LOCATION, value);
-		}
-		else if (key.contains("Verfügbar")) {
-			result.properties.put(PropertyKeys.AVAILABLE_FROM, value);
-		}
-	}
-
-	private static List<String> parseFeatures(XmlObject[] features) {
-		List<String> result = new ArrayList<>();
-		for (XmlObject xo : features) {
-			XmlCursor cur = xo.newCursor();
-			if (cur.toFirstContentToken() == TokenType.TEXT) {
-				result.add(cur.getChars());
-			}
-		}
-		return result;
-	}
-
-	private static String parseResults(XmlObject[] title, String attribute) {
-		if (title != null && title.length > 0) {
-			XmlCursor cur = title[0].newCursor();
-			String result = cur.getAttributeText(new QName("", "href"));
-			cur.dispose();
-			return result;
-		}
-		return null;
-	}
-
 	private XmlObject node;
 
 	public void setNode(XmlObject elems) {
@@ -252,6 +127,36 @@ public class Ad implements Serializable {
 
 	public DateTime getDateTime() {
 		return dateTime;
+	}
+
+	public static Ad forId(String theId) {
+		Ad a = new Ad();
+		a.id = theId;
+		a.properties.put(PropertyKeys.ID, a.id);
+		a.dateTime = new DateTime();
+		
+		a.properties.put(PropertyKeys.DATETIME, a.dateTime.toString());
+		
+		return a;
+	}
+
+	public void setFeatureList(List<String> parseFeatures) {
+		featureList = parseFeatures;
+		
+		StringBuilder sb = new StringBuilder();
+		for (String f : featureList) {
+			sb.append(f);
+			sb.append(", ");
+		}
+		if (featureList != null && featureList.size() > 0) {
+			sb.delete(sb.length()-2, sb.length());
+		}
+		
+		properties.put(PropertyKeys.FEATURES, sb.toString());		
+	}
+
+	public void putProperty(PropertyKeys key, String value) {
+		properties.put(key, value);
 	}
 	
 

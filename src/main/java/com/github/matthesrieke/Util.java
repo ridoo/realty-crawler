@@ -43,4 +43,18 @@ public class Util {
 		return sb;
 	}
 
+	public static void replaceAll(StringBuilder builder, String[][] replacements) {
+		for (int i = 0; i < replacements.length; i++) {
+			String from = replacements[i][0];
+			String to = replacements[i][1];
+			int index = builder.indexOf(from);
+			while (index != -1) {
+				builder.replace(index, index + from.length(), to);
+				index += to.length();
+				index = builder.indexOf(from, index);
+			}
+		}
+		
+	}
+	
 }

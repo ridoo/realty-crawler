@@ -2,8 +2,10 @@ package com.github.matthesrieke;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Properties;
+import java.util.ServiceLoader;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -19,6 +21,8 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.matthesrieke.crawler.Crawler;
+
 public class CrawlerServlet extends HttpServlet {
 
 	/**
@@ -29,6 +33,7 @@ public class CrawlerServlet extends HttpServlet {
 			.getLogger(CrawlerServlet.class);
 	private Timer timer;
 	private Properties properties;
+	private ArrayList<Crawler> crawlers;
 
 	@Override
 	public void init() throws ServletException {
@@ -46,6 +51,8 @@ public class CrawlerServlet extends HttpServlet {
 			throw new ServletException("Could not init properties!", e1);
 		}
 		
+		initializeCrawlers();
+		
 		this.timer = new Timer();
 		
 		this.timer.scheduleAtFixedRate(new TimerTask() {
@@ -54,18 +61,23 @@ public class CrawlerServlet extends HttpServlet {
 			public void run() {
 				logger.info("Starting to parse ad entries...");
 				try {
-					Crawler crawler = new Crawler();
-					String link = properties.getProperty("baselink");
-					logger.info("Baselink: "+link);
+					String baseLink = properties.getProperty("baselink");
+					logger.info("Baselink = "+properties.getProperty("baselink"));
 					
-					int page = 1;
+					Crawler crawler;
+					try {
+						crawler = resolveCrawler(baseLink);
+					} catch (UnsupportedBaseLinkException e1) {
+						logger.warn(e1.getMessage(), e1);
+						return;
+					}					
+					
+					String link;
+					int page = crawler.getFirstPageIndex();
 					while (true) {
 						logger.info("Parsing page "+page);
 						
-						link = properties.getProperty("baselink");
-						if (page != 1) {
-							link = link.concat("&page="+page);
-						}
+						link = crawler.prepareLinkForPage(baseLink, page);
 						
 						HttpGet get = new HttpGet(link);
 						CloseableHttpClient client = HttpClientBuilder.create().setDefaultRequestConfig(RequestConfig.custom().setConnectTimeout(20000).build()).build();
@@ -74,7 +86,7 @@ public class CrawlerServlet extends HttpServlet {
 							if (resp.getStatusLine().getStatusCode() < HttpStatus.SC_MULTIPLE_CHOICES) {
 								InputStream content = resp.getEntity().getContent();
 								
-								Map<String, Ad> items = crawler.parse(content);
+								Map<String, Ad> items = parse(content, crawler);
 								if (items == null || items.size() == 0) {
 									break;
 								}
@@ -97,6 +109,38 @@ public class CrawlerServlet extends HttpServlet {
 		}, 0, 1000 * 60 * 60 * 12);
 	}
 	
+	private void initializeCrawlers() {
+		ServiceLoader<Crawler> loader = ServiceLoader.load(Crawler.class);
+		
+		this.crawlers = new ArrayList<>();
+		for (Crawler crawler : loader) {
+			this.crawlers.add(crawler);
+		}
+	}
+
+	private Map<String, Ad> parse(InputStream is, Crawler crawler) throws CrawlerException {
+		try {
+			StringBuilder sb = Util.parseStream(is);
+			sb = crawler.preprocessContent(sb);
+
+			logger.debug("Parsing content: " + sb.toString());
+			return crawler.parseDom(sb);
+		} catch (IOException e) {
+			logger.warn(e.getMessage(), e);
+			throw new CrawlerException(e);
+		}
+	}
+	
+	protected Crawler resolveCrawler(String baseLink) throws UnsupportedBaseLinkException {
+		for (Crawler crawler : crawlers) {
+			if (crawler.supportsParsing(baseLink)) {
+				return crawler;
+			}
+		}
+		
+		throw new UnsupportedBaseLinkException("No crawler available for baselink: "+baseLink);
+	}
+
 	@Override
 	public void destroy() {
 		super.destroy();
