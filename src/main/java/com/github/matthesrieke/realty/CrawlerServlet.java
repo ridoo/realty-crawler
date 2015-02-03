@@ -113,6 +113,7 @@ public class CrawlerServlet extends HttpServlet {
 						String link;
 						int page = crawler.getFirstPageIndex();
 						while (true) {
+							Thread.sleep(1000);
 							logger.info("Parsing page " + page);
 
 							link = crawler.prepareLinkForPage(baseLink, page);
@@ -151,7 +152,7 @@ public class CrawlerServlet extends HttpServlet {
 
 						logger.info("finished parsing ad entries!");
 					}
-				} catch (RuntimeException e) {
+				} catch (RuntimeException | InterruptedException e) {
 					logger.warn(e.getMessage(), e);
 				}
 			}
