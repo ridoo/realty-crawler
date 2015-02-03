@@ -38,6 +38,8 @@ public class ImmomiaCrawler implements Crawler {
 	private static final Logger logger = LoggerFactory
 			.getLogger(ImmomiaCrawler.class);
 	
+	private static final String PROVIDER_NAME = "wn-immo";
+	
 	@Override
 	public boolean supportsParsing(String url) {
 		if (url != null && url.contains("wn-immo.de")) {
@@ -88,6 +90,7 @@ public class ImmomiaCrawler implements Crawler {
 		
 		for (int i = 0; i < elems.length; i++) {
 			Ad entry = fromNode(elems[i]);
+			entry.putProperty(PropertyKeys.PROVIDER, PROVIDER_NAME);
 			entry.setDateTime(crawlTime);
 			result.add(entry);
 		}

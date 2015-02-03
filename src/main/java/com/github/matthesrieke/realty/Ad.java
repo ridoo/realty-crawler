@@ -31,23 +31,24 @@ public class Ad implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 6513599382861284635L;
-
+	
 	private static final String SEP = "; ";
 
 	private static String htmlTemplate = null;
-
+	
 	static {
 		InputStream is = Ad.class.getResourceAsStream("ad-template.html");
 		htmlTemplate = Util.parseStream(is).toString();
 	}
 
+	private XmlObject node;
 	private String id;
 	private List<String> featureList = new ArrayList<>();
 	private Map<PropertyKeys, String> properties = new HashMap<>();
 	private DateTime dateTime;
 
 	public enum PropertyKeys {
-		LOCATION, SPACE, ROOMS, PRICE, FEATURES, AVAILABLE_FROM, SELLER_TYPE, IMAGE, DATETIME, ID, DESCRIPTION
+		LOCATION, SPACE, ROOMS, PRICE, FEATURES, AVAILABLE_FROM, SELLER_TYPE, IMAGE, DATETIME, ID, DESCRIPTION, PROVIDER
 	}
 
 	private Ad() {
@@ -72,12 +73,12 @@ public class Ad implements Serializable {
 		sb.append(properties.get(PropertyKeys.PRICE));
 		sb.append(SEP);
 
-		sb.append("Ausstattung: ");
-		for (String f : featureList) {
-			sb.append(f);
-			sb.append(", ");
-		}
 		if (featureList != null && featureList.size() > 0) {
+			sb.append("Ausstattung: ");
+			for (String f : featureList) {
+				sb.append(f);
+				sb.append(", ");
+			}
 			sb.delete(sb.length() - 2, sb.length());
 		}
 		sb.append(SEP);
@@ -98,9 +99,11 @@ public class Ad implements Serializable {
 
 	public String toHTML() {
 		String result = htmlTemplate;
+		
+		enrichProperties();
 
 		StringBuilder tmpsb = new StringBuilder("${");
-		for (PropertyKeys key : properties.keySet()) {
+		for (PropertyKeys key : PropertyKeys.values()) {
 			tmpsb.append(key.toString());
 			tmpsb.append("}");
 			String value = properties.get(key);
@@ -114,7 +117,15 @@ public class Ad implements Serializable {
 		return result;
 	}
 
-	private XmlObject node;
+	private void enrichProperties() {
+		String img = properties.get(PropertyKeys.IMAGE);
+		if (img == null || img.isEmpty()) {
+			String provider = properties.get(PropertyKeys.PROVIDER);
+			img = String.format("static/img/provider/%s.png",
+					(provider != null && !provider.isEmpty() ? provider : "rlt-crwlr"));
+			properties.put(PropertyKeys.IMAGE, img);
+		}
+	}
 
 	public void setNode(XmlObject elems) {
 		this.node = elems;
@@ -170,7 +181,7 @@ public class Ad implements Serializable {
 
 	public void setDateTime(DateTime crawlTime) {
 		dateTime = crawlTime;
-		properties.put(PropertyKeys.DATETIME, dateTime.toString());
+		properties.put(PropertyKeys.DATETIME, dateTime.toString(Util.GER_DATE_FORMAT));
 	}
 
 }

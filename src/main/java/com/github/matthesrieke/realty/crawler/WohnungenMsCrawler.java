@@ -36,6 +36,8 @@ public class WohnungenMsCrawler implements Crawler {
 	private static final Logger logger = LoggerFactory
 			.getLogger(WohnungenMsCrawler.class);
 	
+	private static final String PROVIDER_NAME = "wohnungen.ms";
+	
 	@Override
 	public StringBuilder preprocessContent(StringBuilder content) {
 		int bodyIdx = content.indexOf("<body");
@@ -111,6 +113,7 @@ public class WohnungenMsCrawler implements Crawler {
 		//class="tile-title tile-title-list-seb"
 		XmlObject[] title = Util.selectPath(".//h3[@class=\"tile-title tile-title-list-seb\"]/a", elems);
 		Ad result = Ad.forId(Util.parseAttribute(title, "href"));
+		result.putProperty(PropertyKeys.PROVIDER, PROVIDER_NAME);
 		
 		XmlObject[] content = Util.selectPath(".//div[@class=\"row\"]//div[@class=\"seb-content\"]/p", elems);
 		result.putProperty(PropertyKeys.DESCRIPTION, parseContent(content));

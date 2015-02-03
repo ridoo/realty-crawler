@@ -233,7 +233,7 @@ public class CrawlerServlet extends HttpServlet {
 			for (Ad ad : ads) {
 				adsBuilder.append(ad.toHTML());
 			}
-			sb.append(this.groupTemplate.toString().replace("${GROUP_DATE}", a.toString())
+			sb.append(this.groupTemplate.toString().replace("${GROUP_DATE}", a.toString(Util.GER_DATE_FORMAT))
 					.replace("${entries}", adsBuilder.toString()));
 		}
 		

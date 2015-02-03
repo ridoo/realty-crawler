@@ -28,12 +28,15 @@ import org.apache.xmlbeans.XmlCursor;
 import org.apache.xmlbeans.XmlObject;
 import org.apache.xmlbeans.XmlOptions;
 import org.apache.xmlbeans.impl.store.Path;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Util {
 
 	private static final Logger logger = LoggerFactory.getLogger(Util.class);
+	public static final DateTimeFormatter GER_DATE_FORMAT = DateTimeFormat.forPattern("dd.MM.yyyy HH:mm");
 	
 	/**
 	 * This method allows XPath 2.0 expressions with XmlBeans 2.4.0+ It uses a
