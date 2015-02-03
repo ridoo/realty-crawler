@@ -69,9 +69,11 @@ public class CrawlerServlet extends HttpServlet {
 	public void init() throws ServletException {
 		super.init();
 
-		this.listTemplate = Util.parseStream(getClass().getResourceAsStream("index-template.html"));
-		this.groupTemplate = Util.parseStream(getClass().getResourceAsStream("group-template.html"));
-		
+		this.listTemplate = Util.parseStream(getClass().getResourceAsStream(
+				"index-template.html"));
+		this.groupTemplate = Util.parseStream(getClass().getResourceAsStream(
+				"group-template.html"));
+
 		this.properties = new Properties();
 		InputStream is = getClass().getResourceAsStream("/config.properties");
 		if (is == null) {
@@ -83,23 +85,23 @@ public class CrawlerServlet extends HttpServlet {
 			logger.warn(e1.getMessage(), e1);
 			throw new ServletException("Could not init properties!", e1);
 		}
-		
+
 		initializeCrawlers();
-		
+
 		readCrawlingLinks();
-		
+
 		this.timer = new Timer();
-		
+
 		this.timer.scheduleAtFixedRate(new TimerTask() {
-			
+
 			@Override
 			public void run() {
 				logger.info("Starting to parse ad entries...");
 				DateTime now = new DateTime();
 				try {
 					for (String baseLink : crawlLinks) {
-						logger.info("Baselink = "+baseLink);
-						
+						logger.info("Baselink = " + baseLink);
+
 						Crawler crawler;
 						try {
 							crawler = resolveCrawler(baseLink);
@@ -107,55 +109,61 @@ public class CrawlerServlet extends HttpServlet {
 							logger.warn(e1.getMessage(), e1);
 							break;
 						}
-						
+
 						String link;
 						int page = crawler.getFirstPageIndex();
 						while (true) {
-							logger.info("Parsing page "+page);
-							
+							logger.info("Parsing page " + page);
+
 							link = crawler.prepareLinkForPage(baseLink, page);
 							HttpGet get = new HttpGet(link);
 							page++;
-							
-							CloseableHttpClient client = HttpClientBuilder.create().setDefaultRequestConfig(RequestConfig.custom().setConnectTimeout(20000).build()).build();
+
+							CloseableHttpClient client = HttpClientBuilder
+									.create()
+									.setDefaultRequestConfig(
+											RequestConfig.custom()
+													.setConnectTimeout(20000)
+													.build()).build();
 							try {
-								CloseableHttpResponse resp = client.execute(get);
+								CloseableHttpResponse resp = client
+										.execute(get);
 								if (resp.getStatusLine().getStatusCode() < HttpStatus.SC_MULTIPLE_CHOICES) {
-									InputStream content = resp.getEntity().getContent();
-									
+									InputStream content = resp.getEntity()
+											.getContent();
+
 									List<Ad> items = parse(content, crawler);
 									if (items == null || items.size() == 0) {
 										break;
 									}
-									
+
 									compareAndStoreItems(items, now);
-									
-								}
-								else {
+
+								} else {
 									break;
 								}
 							} catch (IOException | CrawlerException e) {
 								logger.warn(e.getMessage(), e);
+								break;
 							}
-		
+
 						}
-											
+
 						logger.info("finished parsing ad entries!");
 					}
-				}
-				catch (RuntimeException e) {
+				} catch (RuntimeException e) {
 					logger.warn(e.getMessage(), e);
 				}
 			}
 		}, 0, 1000 * 60 * 60 * 4);
 	}
-	
+
 	private void readCrawlingLinks() {
 		InputStream is = getClass().getResourceAsStream("/links.txt");
 		if (is != null) {
 			Scanner sc = new Scanner(is);
 			while (sc.hasNext()) {
-				this.crawlLinks .add(sc.nextLine().trim());
+				this.crawlLinks.add(sc.nextLine().trim());
 			}
 			sc.close();
 		}
@@ -163,14 +171,15 @@ public class CrawlerServlet extends HttpServlet {
 
 	private void initializeCrawlers() {
 		ServiceLoader<Crawler> loader = ServiceLoader.load(Crawler.class);
-		
+
 		this.crawlers = new ArrayList<>();
 		for (Crawler crawler : loader) {
 			this.crawlers.add(crawler);
 		}
 	}
 
-	private List<Ad> parse(InputStream is, Crawler crawler) throws CrawlerException {
+	private List<Ad> parse(InputStream is, Crawler crawler)
+			throws CrawlerException {
 		try {
 			StringBuilder sb = Util.parseStream(is);
 			sb = crawler.preprocessContent(sb);
@@ -182,32 +191,34 @@ public class CrawlerServlet extends HttpServlet {
 			throw new CrawlerException(e);
 		}
 	}
-	
-	protected Crawler resolveCrawler(String baseLink) throws UnsupportedBaseLinkException {
+
+	protected Crawler resolveCrawler(String baseLink)
+			throws UnsupportedBaseLinkException {
 		for (Crawler crawler : crawlers) {
 			if (crawler.supportsParsing(baseLink)) {
 				return crawler;
 			}
 		}
-		
-		throw new UnsupportedBaseLinkException("No crawler available for baselink: "+baseLink);
+
+		throw new UnsupportedBaseLinkException(
+				"No crawler available for baselink: " + baseLink);
 	}
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		resp.setContentType("text/html");
-		
+
 		String itemsMarkup = createGroupedItemsMarkup();
 		String content = this.listTemplate.toString().replace("${entries}",
 				itemsMarkup);
-		
+
 		byte[] bytes = content.getBytes("UTF-8");
-		
+
 		resp.setContentLength(bytes.length);
 		resp.setCharacterEncoding("UTF-8");
 		resp.setStatus(HttpStatus.SC_OK);
-		
+
 		resp.getOutputStream().write(bytes);
 		resp.getOutputStream().flush();
 	}
@@ -223,7 +234,7 @@ public class CrawlerServlet extends HttpServlet {
 			sb.append(e);
 			return sb.toString();
 		}
-		
+
 		List<DateTime> sortedKeys = new ArrayList<DateTime>(items.keySet());
 		Collections.sort(sortedKeys);
 		Collections.reverse(sortedKeys);
@@ -233,33 +244,32 @@ public class CrawlerServlet extends HttpServlet {
 			for (Ad ad : ads) {
 				adsBuilder.append(ad.toHTML());
 			}
-			sb.append(this.groupTemplate.toString().replace("${GROUP_DATE}", a.toString(Util.GER_DATE_FORMAT))
+			sb.append(this.groupTemplate.toString()
+					.replace("${GROUP_DATE}", a.toString(Util.GER_DATE_FORMAT))
 					.replace("${entries}", adsBuilder.toString()));
 		}
-		
+
 		return sb.toString();
 	}
 
 	@Override
 	public void destroy() {
 		super.destroy();
-		
+
 		this.timer.cancel();
 		this.storage.shutdown();
 		this.notification.shutdown();
 	}
-	
 
 	protected void compareAndStoreItems(List<Ad> items, DateTime now) {
 		for (Ad ad : items) {
 			ad.setDateTime(now);
 		}
-		
+
 		List<Ad> newItems = this.storage.storeItemsAndProvideNew(items);
 		if (newItems != null && newItems.size() > 0) {
 			this.notification.notifyOnNewItems(newItems);
 		}
 	}
-	
-}
 
+}

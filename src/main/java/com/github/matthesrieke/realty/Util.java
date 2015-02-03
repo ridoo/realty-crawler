@@ -62,7 +62,7 @@ public class Util {
 	}
 
 	public static StringBuilder parseStream(InputStream is) {
-		Scanner sc = new Scanner(is);
+		Scanner sc = new Scanner(is, "UTF-8");
 		StringBuilder sb = new StringBuilder();
 		while (sc.hasNext()) {
 			sb.append(sc.nextLine());
