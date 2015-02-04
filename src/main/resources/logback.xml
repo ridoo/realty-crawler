@@ -15,10 +15,10 @@
 	</appender>
 	<appender name="FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${catalina.home}/logs/immomia-crawler.log</file>
+		<file>${catalina.home}/logs/realty-crawler.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover -->
-			<fileNamePattern>${catalina.home}/logs/immomia-crawler.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<fileNamePattern>${catalina.home}/logs/realty-crawler.%d{yyyy-MM-dd}.log</fileNamePattern>
 			<!-- keep 14 days worth of history -->
 			<maxHistory>14</maxHistory>
 		</rollingPolicy>

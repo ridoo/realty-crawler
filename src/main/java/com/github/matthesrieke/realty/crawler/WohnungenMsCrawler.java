@@ -213,7 +213,7 @@ public class WohnungenMsCrawler implements Crawler {
 
 	@Override
 	public String prepareLinkForPage(String baseLink, int page) {
-		if (page != 1) {
+		if (page != getFirstPageIndex()) {
 			return baseLink.concat("/seite/"+page);
 		}
 		return baseLink.trim();

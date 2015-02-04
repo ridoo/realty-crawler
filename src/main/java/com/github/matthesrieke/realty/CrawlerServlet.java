@@ -91,6 +91,8 @@ public class CrawlerServlet extends HttpServlet {
 		readCrawlingLinks();
 
 		this.timer = new Timer();
+		
+		Integer crawlPeriod = Util.getIntegerProperty(this.properties, "crawlPeriodHours", 6);
 
 		this.timer.scheduleAtFixedRate(new TimerTask() {
 
@@ -156,15 +158,19 @@ public class CrawlerServlet extends HttpServlet {
 					logger.warn(e.getMessage(), e);
 				}
 			}
-		}, 0, 1000 * 60 * 60 * 4);
+		}, 0, 1000 * 60 * 60 * crawlPeriod);
 	}
 
 	private void readCrawlingLinks() {
 		InputStream is = getClass().getResourceAsStream("/links.txt");
 		if (is != null) {
 			Scanner sc = new Scanner(is);
+			String l;
 			while (sc.hasNext()) {
-				this.crawlLinks.add(sc.nextLine().trim());
+				l = sc.nextLine().trim();
+				if (!l.startsWith("#")) {
+					this.crawlLinks.add(l);
+				}
 			}
 			sc.close();
 		}

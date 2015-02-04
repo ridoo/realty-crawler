@@ -205,7 +205,7 @@ public class ImmomiaCrawler implements Crawler {
 
 	@Override
 	public String prepareLinkForPage(String baseLink, int page) {
-		if (page != 1) {
+		if (page != getFirstPageIndex()) {
 			return baseLink.concat("&page="+page);
 		}
 		return baseLink.trim();

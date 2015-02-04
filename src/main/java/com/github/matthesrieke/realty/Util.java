@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Properties;
 import java.util.Scanner;
 
 import javax.xml.namespace.QName;
@@ -116,6 +117,18 @@ public class Util {
 			logger.warn("Could not deserialize object", e);
 			throw new IOException(e);
 		}
+	}
+
+	public static Integer getIntegerProperty(Properties properties, String string, int fallback) {
+		String resultString = properties.getProperty(string);
+		if (resultString != null && !resultString.isEmpty()) {
+			try {
+				return Integer.parseInt(resultString);
+			}
+			catch (NumberFormatException e) {
+			}
+		}
+		return fallback;
 	}
 	
 }
