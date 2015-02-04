@@ -100,7 +100,9 @@ public class ImmomiaCrawler implements Crawler {
 
 	private Ad fromNode(XmlObject elems) {
 		XmlObject[] title = Util.selectPath(".//div[@class=\"title-holder\"]/a", elems);
-		Ad result = Ad.forId("http://www.wn-immo.de".concat(Util.parseAttribute(title, "href")));
+		String ts = "http://www.wn-immo.de".concat(Util.parseAttribute(title, "href"));
+		ts = ts.substring(0, ts.indexOf("?"));
+		Ad result = Ad.forId(ts);
 		result.setNode(elems);
 		
 		XmlObject[] features = Util.selectPath(".//div[@class=\"feature-tags\"]/span", elems);
