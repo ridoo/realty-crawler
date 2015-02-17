@@ -63,6 +63,10 @@ public class ImmomiaCrawler implements Crawler {
 		
 		Util.replaceAll(sb, new String[][] {{"<!-------", "<!--"},{"------>", "-->"},{"&", "&amp;"}});
 		
+		if (sb.indexOf("<tbody") == -1) {
+			Util.replaceAll(sb, new String[][] {{"</tbody>", ""}});
+		}
+		
 		return sb;
 	}
 
