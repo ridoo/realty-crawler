@@ -82,13 +82,12 @@ public class ImmomiaCrawler implements Crawler {
 			throw new IOException(e);
 		}
 		
-		XmlCursor cur = xbean.newCursor();
-		cur.toFirstChild();
-		cur.toFirstChild();
-		xbean = cur.getObject();
-		cur.dispose();
+//		XmlCursor cur = xbean.newCursor();
+//		cur.toFirstChild();
+//		xbean = cur.getObject();
+//		cur.dispose();
 		
-		XmlObject[] elems = xbean.selectChildren(new QName("tr"));
+		XmlObject[] elems = Util.selectPath("./table/tr", xbean);
 		
 		DateTime crawlTime = new DateTime();
 		

@@ -36,14 +36,13 @@ public class ImmomiaCrawlerTest {
 		Crawler crawler = new ImmomiaCrawler();
 		List<Ad> items = crawler.parseDom(crawler.preprocessContent(Util.parseStream(is)));
 		
-		Assert.assertTrue(items.size() == 2);
+		Assert.assertTrue(items.size() == 21);
 		
 		Ad first = items.get(0);
 
 		String img = first.getProperties().get(Ad.PropertyKeys.IMAGE);
 		
-		Assert.assertTrue(img.equals("http://rub-media.westfaelische-nachrichten.de/media/18724/21531138954563/wna_7617893.jpg") ||
-				img.equals("http://rub-media.westfaelische-nachrichten.de/media/18719/88286312783062/wna_7616825.jpg"));
+		Assert.assertTrue(img.equals("http://rub-media.westfaelische-nachrichten.de/media/19348/79774739848253/wna_7624111.jpg"));
 
 	}
 
