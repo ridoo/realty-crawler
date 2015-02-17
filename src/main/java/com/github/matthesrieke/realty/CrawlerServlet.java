@@ -43,9 +43,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.matthesrieke.realty.crawler.Crawler;
-import com.github.matthesrieke.realty.notification.EmailNotification;
+import com.github.matthesrieke.realty.notification.BasicNotification;
 import com.github.matthesrieke.realty.notification.Notification;
 import com.github.matthesrieke.realty.storage.H2Storage;
+import com.github.matthesrieke.realty.storage.Metadata;
 import com.github.matthesrieke.realty.storage.Storage;
 
 public class CrawlerServlet extends HttpServlet {
@@ -56,7 +57,7 @@ public class CrawlerServlet extends HttpServlet {
 	private static final long serialVersionUID = -2548657318153366650L;
 	private static final Logger logger = LoggerFactory
 			.getLogger(CrawlerServlet.class);
-	private final Notification notification = new EmailNotification();
+	private final Notification notification = new BasicNotification();
 	private Timer timer;
 	private Properties properties;
 	private ArrayList<Crawler> crawlers;
@@ -104,6 +105,10 @@ public class CrawlerServlet extends HttpServlet {
 			public void run() {
 				logger.info("Starting to parse ad entries...");
 				DateTime now = new DateTime();
+
+				int insertedCount = 0;
+				int crawlerCount = 0;
+				
 				try {
 					for (String baseLink : crawlLinks) {
 						logger.info("Baselink = " + baseLink);
@@ -115,6 +120,8 @@ public class CrawlerServlet extends HttpServlet {
 							logger.warn(e1.getMessage(), e1);
 							break;
 						}
+						
+						crawlerCount++;
 
 						String link;
 						int page = crawler.getFirstPageIndex();
@@ -144,13 +151,15 @@ public class CrawlerServlet extends HttpServlet {
 										break;
 									}
 
-									compareAndStoreItems(items, now);
+									insertedCount += compareAndStoreItems(items, now);
 
 								} else {
 									break;
 								}
 							} catch (IOException | CrawlerException e) {
 								logger.warn(e.getMessage(), e);
+								Metadata md = new Metadata("Exception during crawl: "+e.getMessage());
+								storage.updateMetadata(md);
 								break;
 							}
 
@@ -158,9 +167,17 @@ public class CrawlerServlet extends HttpServlet {
 
 						logger.info("finished parsing ad entries!");
 					}
+					
+					Metadata md = new Metadata(String.format(
+							"Added %s new entries. %s crawlers have been used", insertedCount, crawlerCount));
+					storage.updateMetadata(md);
 				} catch (RuntimeException | InterruptedException e) {
 					logger.warn(e.getMessage(), e);
+					
+					Metadata md = new Metadata("Exception during crawl: "+e.getMessage());
+					storage.updateMetadata(md);
 				}
+				
 			}
 		}, 0, 1000 * 60 * 60 * crawlPeriod);
 	}
@@ -222,7 +239,7 @@ public class CrawlerServlet extends HttpServlet {
 
 		String itemsMarkup = createGroupedItemsMarkup();
 		String content = this.listTemplate.toString().replace("${entries}",
-				itemsMarkup);
+				itemsMarkup).replace("${meta}", createMetaMarkup());
 
 		byte[] bytes = content.getBytes("UTF-8");
 
@@ -232,6 +249,24 @@ public class CrawlerServlet extends HttpServlet {
 
 		resp.getOutputStream().write(bytes);
 		resp.getOutputStream().flush();
+	}
+
+	private String createMetaMarkup() {
+		try {
+			List<Metadata> mds = this.storage.getLatestMetadata(10);
+			StringBuilder sb = new StringBuilder();
+			for (Metadata md : mds) {
+				sb.append("<li>[");
+				sb.append(md.getDateTime().toString(Util.GER_DATE_FORMAT));
+				sb.append("] ");
+				sb.append(md.getStatus());
+				sb.append("</li>");
+			}
+			return sb.toString();
+		} catch (IOException e) {
+			logger.warn("Error receiving storage metadata", e);
+			return "";
+		}
 	}
 
 	private String createGroupedItemsMarkup() {
@@ -272,7 +307,7 @@ public class CrawlerServlet extends HttpServlet {
 		this.notification.shutdown();
 	}
 
-	protected void compareAndStoreItems(List<Ad> items, DateTime now) {
+	protected int compareAndStoreItems(List<Ad> items, DateTime now) {
 		for (Ad ad : items) {
 			ad.setDateTime(now);
 		}
@@ -281,6 +316,8 @@ public class CrawlerServlet extends HttpServlet {
 		if (newItems != null && newItems.size() > 0) {
 			this.notification.notifyOnNewItems(newItems);
 		}
+		
+		return newItems == null ? 0 : newItems.size();
 	}
 
 }

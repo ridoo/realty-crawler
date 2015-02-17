@@ -50,6 +50,12 @@ public class H2Storage implements Storage {
 	private static final String DATA_COLUMN = "DATA";
 	private static final String DATA_COLUMN_TYPE = "BINARY(256000)";
 	private static final String ID_COLUMN = "ID";
+	
+	private static final String META_TABLE_NAME = "METADATA";
+	private static final String META_TIMESTAMP_COLUMN = "TIME";
+	private static final String META_DATA_COLUMN = "DATA";
+	private static final String META_DATA_COLUMN_TYPE = "VARCHAR(1024)";
+	private static final String META_ID_COLUMN = "ID";
 
 	private Connection connection;
 	private String preferredDatabaseLocation;
@@ -142,14 +148,68 @@ public class H2Storage implements Storage {
 		
 		this.connection = DriverManager.getConnection(connString);
 		this.connection.setAutoCommit(true);
-		try {
-			validateTable();
-		} catch (IllegalStateException e) {
-			logger.warn("database in an illegal state", e.getMessage());
-			createTable();
-		}
+
+		validateTables();
 	}
 
+
+	private void validateTables() throws SQLException {
+		try {
+			validateDataTable();
+		} catch (IllegalStateException e) {
+			logger.warn("database in an illegal state", e.getMessage());
+			createDataTable();
+		}
+		
+		try {
+			validateMetadataTable();
+		} catch (IllegalStateException e) {
+			logger.warn("database in an illegal state", e.getMessage());
+			createMetadataTable();
+		}		
+	}
+
+	private void createMetadataTable() throws SQLException {
+		Statement stmt = this.connection.createStatement();
+		stmt.execute("CREATE TABLE " + META_TABLE_NAME + "(" + META_ID_COLUMN
+				+ " bigint auto_increment PRIMARY KEY, " + META_TIMESTAMP_COLUMN + " "
+				+ TIMESTAMP_COLUMN_TYPE + ", " + META_DATA_COLUMN + " "
+				+ META_DATA_COLUMN_TYPE + ")");		
+	}
+
+	private void validateMetadataTable() throws SQLException {
+		DatabaseMetaData md = this.connection.getMetaData();
+		ResultSet rs = md.getTables(null, null, META_TABLE_NAME, null);
+		boolean valid = true;
+		if (rs.next()) {
+			rs.close();
+			rs = md.getColumns(null, null, null, META_TIMESTAMP_COLUMN);
+			if (rs.next()) {
+				rs.close();
+			} else {
+				valid = false;
+			}
+			rs = md.getColumns(null, null, null, META_DATA_COLUMN);
+			if (rs.next()) {
+				rs.close();
+			} else {
+				valid = false;
+			}
+			rs = md.getColumns(null, null, null, META_ID_COLUMN);
+			if (rs.next()) {
+				rs.close();
+			} else {
+				valid = false;
+			}
+		} else {
+			throw new IllegalStateException(META_TABLE_NAME + " not found.");
+		}
+		if (!valid) {
+			Statement stmt = this.connection.createStatement();
+			stmt.execute("DROP TABLE " + META_TABLE_NAME + " CASCADE");
+			throw new IllegalStateException("Meta Database malformed.");
+		}		
+	}
 
 	private String resolveFavoritePath(File baseLocation) {
 		if (preferredDatabaseLocation != null && !preferredDatabaseLocation.isEmpty()) {
@@ -180,7 +240,7 @@ public class H2Storage implements Storage {
 		return realtyDir.getAbsolutePath();
 	}
 
-	private void createTable() throws SQLException {
+	private void createDataTable() throws SQLException {
 		Statement stmt = this.connection.createStatement();
 		stmt.execute("CREATE TABLE " + TABLE_NAME + "(" + ID_COLUMN
 				+ " VARCHAR(1024) PRIMARY KEY, " + TIMESTAMP_COLUMN + " "
@@ -188,7 +248,7 @@ public class H2Storage implements Storage {
 				+ DATA_COLUMN_TYPE + ")");
 	}
 
-	private void validateTable() throws SQLException {
+	private void validateDataTable() throws SQLException {
 		DatabaseMetaData md = this.connection.getMetaData();
 		ResultSet rs = md.getTables(null, null, TABLE_NAME, null);
 		boolean valid = true;
@@ -276,6 +336,51 @@ public class H2Storage implements Storage {
 			this.connection.close();
 		} catch (SQLException e) {
 			logger.warn("error on closing db connection", e);
+		}
+	}
+
+	@Override
+	public void updateMetadata(Metadata md) {
+		logger.debug("Updating metadata: " + md);
+		
+		PreparedStatement prep;
+		try {
+			prep = this.connection
+					.prepareStatement("insert into " + META_TABLE_NAME + " ("
+							+ META_TIMESTAMP_COLUMN
+							+ ", " + META_DATA_COLUMN + ") values (?,?)");
+			prep.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
+			prep.setString(2, md.getStatus());
+			prep.execute();
+		} catch (SQLException e) {
+			logger.warn("Could not update metadata", e);
+		}
+
+	}
+
+	@Override
+	public List<Metadata> getLatestMetadata(int count) throws IOException {
+		try {
+			Statement stmt = this.connection.createStatement();
+			StringBuilder sb = new StringBuilder();
+			sb.append("SELECT * from ");
+			sb.append(META_TABLE_NAME);
+			sb.append(" ORDER BY ");
+			sb.append(META_TIMESTAMP_COLUMN);
+			if (count > 0) {
+				sb.append(" LIMIT ");
+				sb.append(count);
+			}
+			stmt.execute(sb.toString());
+			
+			ResultSet rs = stmt.getResultSet();
+			
+			List<Metadata> result = Metadata.fromResultSet(rs);
+			
+			return result;
+		} catch (SQLException e) {
+			logger.warn("Error retrieving meta-database entries", e);
+			throw new IOException(e);
 		}
 	}
 

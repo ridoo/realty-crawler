@@ -44,3 +44,8 @@ div.entry-price {
 	font-weight: bold;
 	font-style: italic;
 }
+
+div.crawler-metadata ul li {
+	padding:0;
+	margin:0;
+}

@@ -21,11 +21,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.matthesrieke.realty.Ad;
+import com.github.matthesrieke.realty.storage.Storage;
 
-public class EmailNotification implements Notification {
+public class BasicNotification implements Notification {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(EmailNotification.class);
+			.getLogger(BasicNotification.class);
 	
 	@Override
 	public void notifyOnNewItems(List<Ad> newItems) {
@@ -34,6 +35,10 @@ public class EmailNotification implements Notification {
 		}
 	}
 
+	@Override
+	public void init(Storage st) {
+	}
+	
 	@Override
 	public void shutdown() {
 		

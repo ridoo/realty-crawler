@@ -18,11 +18,14 @@ package com.github.matthesrieke.realty.notification;
 import java.util.List;
 
 import com.github.matthesrieke.realty.Ad;
+import com.github.matthesrieke.realty.storage.Storage;
 
 public interface Notification {
 
 	void notifyOnNewItems(List<Ad> newItems);
 
 	void shutdown();
+
+	void init(Storage st);
 
 }

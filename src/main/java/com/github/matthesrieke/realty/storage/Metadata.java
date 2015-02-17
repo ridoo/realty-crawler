@@ -15,26 +15,48 @@
  */
 package com.github.matthesrieke.realty.storage;
 
-import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.joda.time.DateTime;
 
-import com.github.matthesrieke.realty.Ad;
+public class Metadata {
 
-public interface Storage {
+	private String status;
+	private DateTime dateTime;
 
-	List<Ad> storeItemsAndProvideNew(List<Ad> items);
+	public Metadata(String s) {
+		this.status = s;
+	}
 
-	List<Ad> getAllItems() throws IOException;
+	private Metadata() {
+	}
 
-	void shutdown();
-
-	Map<DateTime, List<Ad>> getItemsGroupedByDate() throws IOException;
+	public String getStatus() {
+		return this.status;
+	}
 	
-	void updateMetadata(Metadata md);
-	
-	List<Metadata> getLatestMetadata(int count) throws IOException;
-	
+	public DateTime getDateTime() {
+		return dateTime;
+	}
+
+	public static List<Metadata> fromResultSet(ResultSet rs) throws SQLException {
+		if (rs == null) {
+			return null;
+		}
+		
+		List<Metadata> result = new ArrayList<>();
+		while (rs.next()) {
+			Metadata md = new Metadata();
+			md.status = rs.getString("DATA");
+			md.dateTime = new DateTime(rs.getTimestamp("TIME"));
+			result.add(md);
+		}
+		
+		return result;
+	}
+
+
 }
