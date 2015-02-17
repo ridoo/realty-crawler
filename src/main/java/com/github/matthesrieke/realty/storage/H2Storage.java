@@ -52,8 +52,10 @@ public class H2Storage implements Storage {
 	private static final String ID_COLUMN = "ID";
 
 	private Connection connection;
+	private String preferredDatabaseLocation;
 
-	public H2Storage() {
+	public H2Storage(String preferredDatabaseLocation) {
+		this.preferredDatabaseLocation = preferredDatabaseLocation;
 		try {
 			initialize(new File(getClass().getResource("/").getFile()));
 		} catch (Exception e) {
@@ -150,6 +152,23 @@ public class H2Storage implements Storage {
 
 
 	private String resolveFavoritePath(File baseLocation) {
+		if (preferredDatabaseLocation != null && !preferredDatabaseLocation.isEmpty()) {
+			File preferred = new File(preferredDatabaseLocation);
+			if (preferred.exists()) {
+				if (preferred.isDirectory()) {
+					return preferred.getAbsolutePath();
+				}
+			}
+			else {
+				if (preferred.mkdirs()) {
+					return preferred.getAbsolutePath();
+				}
+				else {
+					logger.warn("Could not create database directory: "+preferredDatabaseLocation);
+				}
+			}
+		}
+		
 		String home = System.getProperty("user.home");
 		File homeFile = new File(home);
 		File realtyDir = new File(homeFile, ".realty-crawler");

@@ -60,7 +60,7 @@ public class CrawlerServlet extends HttpServlet {
 	private Timer timer;
 	private Properties properties;
 	private ArrayList<Crawler> crawlers;
-	private Storage storage = new H2Storage();
+	private Storage storage;
 	private StringBuilder listTemplate;
 	private StringBuilder groupTemplate;
 	private List<String> crawlLinks = new ArrayList<>();
@@ -89,11 +89,15 @@ public class CrawlerServlet extends HttpServlet {
 		initializeCrawlers();
 
 		readCrawlingLinks();
+		
+		String preferredDatabaseLocation = properties.getProperty("DATABASE_DIR");
+		storage = new H2Storage(preferredDatabaseLocation);
 
 		this.timer = new Timer();
 		
 		Integer crawlPeriod = Util.getIntegerProperty(this.properties, "crawlPeriodHours", 6);
-
+		logger.info(String.format("Scheduling crawl every %s hours.", crawlPeriod));
+		
 		this.timer.scheduleAtFixedRate(new TimerTask() {
 
 			@Override
