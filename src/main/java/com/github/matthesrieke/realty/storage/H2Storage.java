@@ -367,6 +367,7 @@ public class H2Storage implements Storage {
 			sb.append(META_TABLE_NAME);
 			sb.append(" ORDER BY ");
 			sb.append(META_TIMESTAMP_COLUMN);
+			sb.append(" DESC");
 			if (count > 0) {
 				sb.append(" LIMIT ");
 				sb.append(count);
