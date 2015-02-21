@@ -1,3 +1,1 @@
-http://www.wn-immo.de/search.html?showResults=true&surrounding=5&spotlight=false&sort=%5B%22date%2Cdesc%22%5D&searchTerm=M%C3%BCnster&minNumberRooms=3.0&minLivingArea=71.0&maxRent=85000&city=M%C3%BCnster&adType=R_APART
-http://wohnungen.ms/provisionsfreie-wohnungen-muenster/groesse/3-zimmer/
-http://wohnungen.ms/provisionsfreie-wohnungen-muenster/groesse/4-zimmer/
+http://www.nadann.de/Kleinanzeigen/Rubrik/Biete+Wohnen#

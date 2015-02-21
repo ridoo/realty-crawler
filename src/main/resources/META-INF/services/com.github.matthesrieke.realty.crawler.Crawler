@@ -1,2 +1,3 @@
 com.github.matthesrieke.realty.crawler.ImmomiaCrawler
 com.github.matthesrieke.realty.crawler.WohnungenMsCrawler
+com.github.matthesrieke.realty.crawler.NadannCrawler
