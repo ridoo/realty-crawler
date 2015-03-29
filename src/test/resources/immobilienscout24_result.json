@@ -1,0 +1,734 @@
+{
+    "results": [{
+            "id": 80007893,
+            "cwid": "001.814613",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "ATTRAKTIVE 3-4 Zimmer mit Wohnküche, sehr gepflegtes \u0026 ruhiges 3-Parteienhaus in Kempen-St. Hubert.",
+            "address": "Kempen, Viersen (Kreis)",
+            "district": "Kempen",
+            "city": "Viersen (Kreis)",
+            "zip": "47906",
+            "mediaCount": 9,
+            "pictureUrls": ["http://picture8is24-a.akamaihd.net/pic/orig02/N/355/851/533/355851533-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?642789033", "http://picture2is24-a.akamaihd.net/pic/orig03/N/355/851/534/355851534-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?340412340", "http://picture8is24-a.akamaihd.net/pic/orig04/N/355/851/535/355851535-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3143110416", "http://picture5is24-a.akamaihd.net/pic/orig02/N/355/851/537/355851537-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1142191358", "http://picture7is24-a.akamaihd.net/pic/orig04/N/355/851/539/355851539-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?77327165", "http://picture4is24-a.akamaihd.net/pic/orig01/N/355/851/540/355851540-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1673217615", "http://picture5is24-a.akamaihd.net/pic/orig03/N/355/851/542/355851542-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2117581483", "http://picture7is24-a.akamaihd.net/pic/orig04/N/355/851/543/355851543-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2987886521", "http://picture9is24-a.akamaihd.net/pic/orig01/N/355/851/544/355851544-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3142142677"],
+            "distanceInKm": 0.329,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "realtorLogoForResultlistUrl": "http://picture9is24-a.akamaihd.net/pic/orig04/N/193/321/707/193321707-0.jpg/ORIG/resize/120x50%3E/quality/80?2721912756",
+            "realtorCompanyName": "frb Immobilien - Frank Rudolf Braun",
+            "contactName": "Frau Andrea Mondal-Vogt",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "450 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "80 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Garten"],
+            "showAddress": false,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 78848601,
+            "cwid": "001.14513694",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "KREFELD-HÜLS/ INRATH - SCHÖNE VIERZIMMERWOHNUNG - BALKON - NÄHE HÜLSER BRUCH",
+            "address": "Hüls, Krefeld",
+            "district": "Hüls",
+            "city": "Krefeld",
+            "zip": "47839",
+            "mediaCount": 11,
+            "pictureUrls": ["http://picture4is24-a.akamaihd.net/pic/orig02/N/331/327/189/331327189-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1350265287", "http://picture6is24-a.akamaihd.net/pic/orig02/N/331/336/73/331336073-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3419000246", "http://picture3is24-a.akamaihd.net/pic/orig03/N/355/681/26/355681026-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2574112371", "http://picture4is24-a.akamaihd.net/pic/orig04/N/355/683/827/355683827-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1275352899", "http://picture1is24-a.akamaihd.net/pic/orig03/N/355/683/750/355683750-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2413716813", "http://picture5is24-a.akamaihd.net/pic/orig01/N/355/682/500/355682500-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2287061651", "http://picture5is24-a.akamaihd.net/pic/orig01/N/355/679/36/355679036-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1309438864", "http://picture7is24-a.akamaihd.net/pic/orig01/N/355/680/152/355680152-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?672450703", "http://picture2is24-a.akamaihd.net/pic/orig03/N/355/680/770/355680770-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1829375811", "http://picture3is24-a.akamaihd.net/pic/orig01/N/355/681/704/355681704-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1919327369", "http://picture9is24-a.akamaihd.net/pic/orig04/N/331/335/815/331335815-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1375678680"],
+            "distanceInKm": 3.147,
+            "hasNewFlag": true,
+            "hasUpdatedFlag": false,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "realtorLogoForResultlistUrl": "http://picture9is24-a.akamaihd.net/pic/orig03/N/214/712/186/214712186-0.jpg/ORIG/resize/120x50%3E/quality/80?2965933954",
+            "realtorCompanyName": "Bellassai \u0026 Sigmund Immobilien GbR",
+            "contactName": "Frau Sabine Bellassai",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "480 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "83 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Provisionsfrei*", "Balkon", "Garten"],
+            "showAddress": false,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 80567887,
+            "cwid": "001.5756718",
+            "shortlisted": false,
+            "privateOffer": true,
+            "title": "4 1/2 Zimmer wohnung in Kerken Stenden",
+            "address": "Dorfstr. 85a, Kerken, Kleve (Kreis)",
+            "district": "Kerken",
+            "city": "Kleve (Kreis)",
+            "zip": "47647",
+            "mediaCount": 21,
+            "pictureUrls": ["http://picture2is24-a.akamaihd.net/pic/orig01/N/355/597/412/355597412-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1174852972", "http://picture8is24-a.akamaihd.net/pic/orig03/N/355/597/966/355597966-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2629861289", "http://picture1is24-a.akamaihd.net/pic/orig04/N/355/598/391/355598391-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?798737511", "http://picture6is24-a.akamaihd.net/pic/orig04/N/355/598/735/355598735-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1572298992", "http://picture1is24-a.akamaihd.net/pic/orig02/N/355/598/929/355598929-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?280988687", "http://picture5is24-a.akamaihd.net/pic/orig02/N/355/607/157/355607157-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1041115102", "http://picture9is24-a.akamaihd.net/pic/orig02/N/355/599/689/355599689-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2564858002", "http://picture1is24-a.akamaihd.net/pic/orig03/N/355/600/42/355600042-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?786082094", "http://picture9is24-a.akamaihd.net/pic/orig02/N/355/600/481/355600481-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3516720129", "http://picture7is24-a.akamaihd.net/pic/orig04/N/355/600/687/355600687-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2002070541", "http://picture4is24-a.akamaihd.net/pic/orig01/N/355/600/896/355600896-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?824546220", "http://picture4is24-a.akamaihd.net/pic/orig01/N/355/601/500/355601500-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2708553530", "http://picture2is24-a.akamaihd.net/pic/orig02/N/355/601/641/355601641-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2662463814", "http://picture2is24-a.akamaihd.net/pic/orig04/N/355/601/967/355601967-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3615317936", "http://picture9is24-a.akamaihd.net/pic/orig01/N/355/602/216/355602216-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1363272318", "http://picture7is24-a.akamaihd.net/pic/orig04/N/355/602/451/355602451-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3868252783", "http://picture5is24-a.akamaihd.net/pic/orig01/N/355/602/908/355602908-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3380717919", "http://picture1is24-a.akamaihd.net/pic/orig04/N/355/603/131/355603131-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2917415999", "http://picture7is24-a.akamaihd.net/pic/orig02/N/355/603/505/355603505-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3902983121", "http://picture9is24-a.akamaihd.net/pic/orig03/N/355/606/786/355606786-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?867893895", "http://picture3is24-a.akamaihd.net/pic/orig01/N/355/607/816/355607816-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2737801742"],
+            "distanceInKm": 3.753,
+            "hasNewFlag": true,
+            "hasUpdatedFlag": false,
+            "hasFloorplan": true,
+            "hasValuation": false,
+            "contactName": "Herr Bernd Gebauer",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "630 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "120 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Provisionsfrei*", "Balkon"],
+            "showAddress": true,
+            "latitude": 51.41621,
+            "longitude": 6.45026,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 68581096,
+            "cwid": "001.281950",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "*** Modernisierte 4 Zimmer Eg-Wohnung im Zentrum von Hüls ***",
+            "address": "Rektoratsstr. 13, Hüls, Krefeld",
+            "district": "Hüls",
+            "city": "Krefeld",
+            "zip": "47839",
+            "mediaCount": 15,
+            "pictureUrls": ["http://picture6is24-a.akamaihd.net/pic/orig04/N/350/14/511/350014511-0.jpeg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3073199215", "http://picture3is24-a.akamaihd.net/pic/orig02/N/175/145/969/175145969-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2903666860", "http://picture7is24-a.akamaihd.net/pic/orig04/N/175/145/999/175145999-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?180444704", "http://picture8is24-a.akamaihd.net/pic/orig04/N/175/146/7/175146007-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3252918742", "http://picture2is24-a.akamaihd.net/pic/orig01/N/349/423/684/349423684-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4059910358", "http://picture5is24-a.akamaihd.net/pic/orig01/N/349/424/700/349424700-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2999280112", "http://picture7is24-a.akamaihd.net/pic/orig03/N/349/425/178/349425178-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?690237567", "http://picture8is24-a.akamaihd.net/pic/orig02/N/349/425/465/349425465-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1842841229", "http://picture7is24-a.akamaihd.net/pic/orig01/N/349/425/752/349425752-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2614575230", "http://picture9is24-a.akamaihd.net/pic/orig01/N/349/426/140/349426140-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4172007097", "http://picture9is24-a.akamaihd.net/pic/orig04/N/349/426/559/349426559-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3856189017", "http://picture1is24-a.akamaihd.net/pic/orig03/N/349/426/878/349426878-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2826905495", "http://picture5is24-a.akamaihd.net/pic/orig04/N/349/427/471/349427471-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3806648561", "http://picture1is24-a.akamaihd.net/pic/orig01/N/349/427/936/349427936-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3356745284"],
+            "distanceInKm": 4.056,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": true,
+            "hasValuation": false,
+            "videoId": "ZK43oA4gIUwBktIdJvGydg",
+            "realtorLogoForResultlistUrl": "http://picture9is24-a.akamaihd.net/pic/orig03/N/211/868/870/211868870-0.jpg/ORIG/resize/120x50%3E/quality/80?4132753311",
+            "realtorCompanyName": "Pasch und Kruszona GmbH",
+            "contactName": "Herr Ralf Klapdor",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "540 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "84 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Garten"],
+            "showAddress": true,
+            "latitude": 51.37349,
+            "longitude": 6.51166,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 80242067,
+            "cwid": "001.12603808",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "***Großzügige Maisonettewohnung in guter Lage von Tönisvorst***",
+            "address": "Tönisvorst, Viersen (Kreis)",
+            "district": "Tönisvorst",
+            "city": "Viersen (Kreis)",
+            "zip": "47918",
+            "mediaCount": 15,
+            "pictureUrls": ["http://picture3is24-a.akamaihd.net/pic/orig03/N/350/750/374/350750374-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2109604995", "http://picture1is24-a.akamaihd.net/pic/orig02/N/350/750/385/350750385-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4205622481", "http://picture9is24-a.akamaihd.net/pic/orig03/N/350/750/398/350750398-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?752439882", "http://picture5is24-a.akamaihd.net/pic/orig04/N/350/750/407/350750407-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3824952511", "http://picture7is24-a.akamaihd.net/pic/orig04/N/350/750/415/350750415-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1586960562", "http://picture3is24-a.akamaihd.net/pic/orig04/N/350/750/427/350750427-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1479294978", "http://picture3is24-a.akamaihd.net/pic/orig01/N/350/750/436/350750436-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2084191432", "http://picture8is24-a.akamaihd.net/pic/orig02/N/350/750/445/350750445-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3779230850", "http://picture7is24-a.akamaihd.net/pic/orig02/N/350/750/457/350750457-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2733029599", "http://picture6is24-a.akamaihd.net/pic/orig01/N/350/750/468/350750468-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?263712042", "http://picture5is24-a.akamaihd.net/pic/orig04/N/350/750/479/350750479-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3568402435", "http://picture7is24-a.akamaihd.net/pic/orig04/N/350/750/487/350750487-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3852746057", "http://picture7is24-a.akamaihd.net/pic/orig01/N/350/750/492/350750492-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3573890631", "http://picture1is24-a.akamaihd.net/pic/orig03/N/350/750/510/350750510-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?394371116", "http://picture5is24-a.akamaihd.net/pic/orig04/N/350/750/531/350750531-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1151071146"],
+            "distanceInKm": 6.362,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": false,
+            "hasFloorplan": true,
+            "hasValuation": false,
+            "realtorLogoForResultlistUrl": "http://picture9is24-a.akamaihd.net/pic/orig01/N/347/774/900/347774900-0.png/ORIG/resize/120x50%3E/quality/80?3025310508",
+            "realtorCompanyName": "ATIS Immobilien",
+            "contactName": " Marcel Pommerening",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "650 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "93 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Balkon", "Einbauküche"],
+            "showAddress": false,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 79497932,
+            "cwid": "009.c27eea27-bf02-48fe-b0b7-ae2e06254a2a",
+            "shortlisted": false,
+            "privateOffer": true,
+            "title": "schöne 97 qm WHG in ruhiger Lage v. Vluyn zu vermieten",
+            "address": "Platanenstr. 11, Neukirchen-Vluyn, Wesel (Kreis)",
+            "district": "Neukirchen-Vluyn",
+            "city": "Wesel (Kreis)",
+            "zip": "47506",
+            "mediaCount": 4,
+            "pictureUrls": ["http://picture6is24-a.akamaihd.net/pic/orig03/N/341/901/74/341901074-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3966195207", "http://picture4is24-a.akamaihd.net/pic/orig02/N/341/901/369/341901369-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3192811234", "http://picture8is24-a.akamaihd.net/pic/orig01/N/341/901/616/341901616-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3896873570", "http://picture4is24-a.akamaihd.net/pic/orig04/N/341/901/815/341901815-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3089687126"],
+            "distanceInKm": 7.36,
+            "hasNewFlag": true,
+            "hasUpdatedFlag": false,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "contactName": "Herr Christian Gerber",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "580 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "97 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Provisionsfrei*", "Balkon", "Einbauküche"],
+            "showAddress": true,
+            "latitude": 51.43131,
+            "longitude": 6.52709,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 80111098,
+            "cwid": "001.814613",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "Neukirchen-Vluyn: Neuwertige 4 ZKB-Wohnung mit EBK in zentraler, ruhiger Innenstadtlage !",
+            "address": "Neukirchen-Vluyn, Wesel (Kreis)",
+            "district": "Neukirchen-Vluyn",
+            "city": "Wesel (Kreis)",
+            "zip": "47506",
+            "mediaCount": 12,
+            "pictureUrls": ["http://picture4is24-a.akamaihd.net/pic/orig01/N/349/713/404/349713404-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2807724313", "http://picture4is24-a.akamaihd.net/pic/orig03/N/349/713/214/349713214-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?272284340", "http://picture7is24-a.akamaihd.net/pic/orig03/N/349/713/234/349713234-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1488038274", "http://picture9is24-a.akamaihd.net/pic/orig02/N/349/713/149/349713149-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2741800762", "http://picture3is24-a.akamaihd.net/pic/orig04/N/349/713/131/349713131-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3294732000", "http://picture6is24-a.akamaihd.net/pic/orig02/N/349/713/249/349713249-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1413539666", "http://picture7is24-a.akamaihd.net/pic/orig03/N/349/713/274/349713274-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2725581256", "http://picture3is24-a.akamaihd.net/pic/orig03/N/349/713/334/349713334-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1998707541", "http://picture5is24-a.akamaihd.net/pic/orig04/N/349/713/375/349713375-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?449531252", "http://picture7is24-a.akamaihd.net/pic/orig03/N/349/713/170/349713170-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1217306993", "http://picture6is24-a.akamaihd.net/pic/orig01/N/349/713/192/349713192-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?273397964", "http://picture1is24-a.akamaihd.net/pic/orig01/N/356/117/736/356117736-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?631851710"],
+            "distanceInKm": 7.972,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "realtorLogoForResultlistUrl": "http://picture9is24-a.akamaihd.net/pic/orig04/N/193/321/707/193321707-0.jpg/ORIG/resize/120x50%3E/quality/80?2721912756",
+            "realtorCompanyName": "frb Immobilien - Frank Rudolf Braun",
+            "contactName": "Herr Werner Tanzer",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "540 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "80 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Einbauküche"],
+            "showAddress": false,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 79155102,
+            "cwid": "001.13199480",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "Erstbezug nach Sanierung - schicke Wohnung mit Balkon",
+            "address": "Geldernschestr. 45, Stadtmitte, Krefeld",
+            "district": "Stadtmitte",
+            "city": "Krefeld",
+            "zip": "47798",
+            "mediaCount": 9,
+            "pictureUrls": ["http://picture6is24-a.akamaihd.net/pic/orig02/N/349/394/993/349394993-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?817349988", "http://picture1is24-a.akamaihd.net/pic/orig02/N/349/395/69/349395069-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?809758357", "http://picture9is24-a.akamaihd.net/pic/orig02/N/349/395/169/349395169-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4157724365", "http://picture7is24-a.akamaihd.net/pic/orig02/N/349/395/325/349395325-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2090775740", "http://picture7is24-a.akamaihd.net/pic/orig04/N/349/395/43/349395043-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1245435356", "http://picture2is24-a.akamaihd.net/pic/orig01/N/349/394/960/349394960-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1340220571", "http://picture4is24-a.akamaihd.net/pic/orig04/N/349/395/99/349395099-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3662821072", "http://picture9is24-a.akamaihd.net/pic/orig02/N/349/395/129/349395129-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1593277650", "http://picture4is24-a.akamaihd.net/pic/orig04/N/349/397/311/349397311-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1890502598"],
+            "distanceInKm": 8.541,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": true,
+            "hasValuation": false,
+            "realtorLogoForResultlistUrl": "http://picture9is24-a.akamaihd.net/pic/orig03/N/346/438/46/346438046-0.jpg/ORIG/resize/120x50%3E/quality/80?1393177485",
+            "realtorCompanyName": "Kohlen Immobilien",
+            "contactName": "Frau Barbara Domhoff",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "595 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "90 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Provisionsfrei*", "Balkon"],
+            "showAddress": true,
+            "latitude": 51.33896,
+            "longitude": 6.55787,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 67795829,
+            "cwid": "001.1033534",
+            "shortlisted": false,
+            "privateOffer": true,
+            "title": "Große und helle Etagenwohnung mit außergewöhnlichem Schnitt",
+            "address": "Rheinstr. 136, Stadtmitte, Krefeld",
+            "district": "Stadtmitte",
+            "city": "Krefeld",
+            "zip": "47798",
+            "mediaCount": 9,
+            "pictureUrls": ["http://picture7is24-a.akamaihd.net/pic/orig04/N/165/101/163/165101163-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1138008914", "http://picture5is24-a.akamaihd.net/pic/orig04/N/165/101/151/165101151-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1847551986", "http://picture4is24-a.akamaihd.net/pic/orig03/N/165/101/142/165101142-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2381516395", "http://picture5is24-a.akamaihd.net/pic/orig01/N/165/101/148/165101148-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1027818120", "http://picture6is24-a.akamaihd.net/pic/orig02/N/165/101/149/165101149-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?598507251", "http://picture1is24-a.akamaihd.net/pic/orig04/N/165/101/139/165101139-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3175689523", "http://picture4is24-a.akamaihd.net/pic/orig02/N/165/101/157/165101157-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2575871512", "http://picture4is24-a.akamaihd.net/pic/orig04/N/165/101/159/165101159-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4283072226", "http://picture7is24-a.akamaihd.net/pic/orig02/N/165/101/161/165101161-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?240262048"],
+            "distanceInKm": 9.13,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "contactName": "Herr Dietrich",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "695 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "112 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Provisionsfrei*"],
+            "showAddress": true,
+            "latitude": 51.33276,
+            "longitude": 6.56142,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 80310916,
+            "cwid": "001.330341",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "Leben wie im freistehenden Einfamilienhaus!",
+            "address": "Rheurdt, Kleve (Kreis)",
+            "district": "Rheurdt",
+            "city": "Kleve (Kreis)",
+            "zip": "47509",
+            "mediaCount": 12,
+            "pictureUrls": ["http://picture4is24-a.akamaihd.net/pic/orig01/N/356/800/612/356800612-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4240343446", "http://picture9is24-a.akamaihd.net/pic/orig04/N/356/800/619/356800619-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1885482063", "http://picture9is24-a.akamaihd.net/pic/orig03/N/356/800/626/356800626-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?325389357", "http://picture5is24-a.akamaihd.net/pic/orig04/N/356/800/635/356800635-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?514224709", "http://picture4is24-a.akamaihd.net/pic/orig01/N/356/800/652/356800652-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3945138503", "http://picture2is24-a.akamaihd.net/pic/orig03/N/356/800/658/356800658-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2000920367", "http://picture5is24-a.akamaihd.net/pic/orig02/N/356/800/665/356800665-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1173409533", "http://picture9is24-a.akamaihd.net/pic/orig01/N/356/800/672/356800672-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?214072631", "http://picture9is24-a.akamaihd.net/pic/orig03/N/356/800/678/356800678-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1145838397", "http://picture1is24-a.akamaihd.net/pic/orig01/N/356/800/688/356800688-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2796161281", "http://picture3is24-a.akamaihd.net/pic/orig03/N/356/800/698/356800698-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1588821397", "http://picture7is24-a.akamaihd.net/pic/orig02/N/356/800/717/356800717-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?460968920"],
+            "distanceInKm": 9.326,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "realtorLogoForResultlistUrl": "http://picture9is24-a.akamaihd.net/pic/orig03/N/340/95/126/340095126-0.jpg/ORIG/resize/120x50%3E/quality/80?999883723",
+            "realtorCompanyName": "VOBA IMMOBILIEN eG",
+            "contactName": " Timo Pastoors",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "600 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "106 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Balkon"],
+            "showAddress": false,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 80719180,
+            "cwid": "002.01003168561",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "*VIEL PLATZ FÜR DIE FAMILIE ! Frisch sanierte 4 Zi.-Stadtwohnung mit Ambiente *",
+            "address": "Stadtmitte, Krefeld",
+            "district": "Stadtmitte",
+            "city": "Krefeld",
+            "zip": "47798",
+            "mediaCount": 16,
+            "pictureUrls": ["http://picture1is24-a.akamaihd.net/pic/orig03/N/357/817/302/357817302-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1642098902", "http://picture3is24-a.akamaihd.net/pic/orig03/N/357/817/146/357817146-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2385292582", "http://picture2is24-a.akamaihd.net/pic/orig04/N/357/817/227/357817227-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3754438280", "http://picture3is24-a.akamaihd.net/pic/orig04/N/357/817/623/357817623-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3058583680", "http://picture1is24-a.akamaihd.net/pic/orig01/N/357/816/536/357816536-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3176369877", "http://picture9is24-a.akamaihd.net/pic/orig02/N/357/817/757/357817757-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2291977429", "http://picture1is24-a.akamaihd.net/pic/orig04/N/357/817/935/357817935-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3876364992", "http://picture2is24-a.akamaihd.net/pic/orig01/N/357/818/24/357818024-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2710976990", "http://picture4is24-a.akamaihd.net/pic/orig01/N/357/816/888/357816888-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3305612201", "http://picture3is24-a.akamaihd.net/pic/orig04/N/357/816/967/357816967-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3482118095", "http://picture7is24-a.akamaihd.net/pic/orig04/N/357/817/51/357817051-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1693486460", "http://picture2is24-a.akamaihd.net/pic/orig02/N/357/816/601/357816601-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1354829156", "http://picture5is24-a.akamaihd.net/pic/orig04/N/357/816/779/357816779-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3139359251", "http://picture2is24-a.akamaihd.net/pic/orig02/N/357/816/461/357816461-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3050240253", "http://picture7is24-a.akamaihd.net/pic/orig03/N/357/816/370/357816370-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2793482924", "http://picture1is24-a.akamaihd.net/pic/orig03/N/357/816/286/357816286-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?999021523"],
+            "distanceInKm": 9.757,
+            "hasNewFlag": true,
+            "hasUpdatedFlag": false,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "realtorLogoForResultlistUrl": "http://picture3is24-a.akamaihd.net/pic/orig03/N/147/343/682/147343682-0.jpg/ORIG/resize/120x50%3E/quality/80?3746608427",
+            "realtorCompanyName": "Immobilien Fair \u0026 Freundlich Krefeld-Umgebung",
+            "contactName": "Herr Alexander Leichin",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "520 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "105 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": [],
+            "showAddress": false,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 67126081,
+            "cwid": "001.15667145",
+            "shortlisted": false,
+            "privateOffer": true,
+            "title": "City-Lage in Krefeld, Nähe Ostwall",
+            "address": "Südwall 10, Stadtmitte, Krefeld",
+            "district": "Stadtmitte",
+            "city": "Krefeld",
+            "zip": "47798",
+            "mediaCount": 5,
+            "pictureUrls": ["http://picture3is24-a.akamaihd.net/pic/orig01/N/258/893/184/258893184-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?426091902", "http://picture7is24-a.akamaihd.net/pic/orig01/N/258/893/232/258893232-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3958834999", "http://picture7is24-a.akamaihd.net/pic/orig02/N/258/893/333/258893333-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3399800687", "http://picture4is24-a.akamaihd.net/pic/orig01/N/258/893/360/258893360-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2595658365", "http://picture9is24-a.akamaihd.net/pic/orig02/N/258/894/205/258894205-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?547225088"],
+            "distanceInKm": 9.762,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "contactName": " B. Krichel",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "470 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "89 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Provisionsfrei*"],
+            "showAddress": true,
+            "latitude": 51.32802,
+            "longitude": 6.56727,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 69552295,
+            "cwid": "001.423330",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "Kinderfreundliche Wohnung provisionsfrei",
+            "address": "Seidenstrasse 78, Cracau, Krefeld",
+            "district": "Cracau",
+            "city": "Krefeld",
+            "zip": "47799",
+            "mediaCount": 9,
+            "pictureUrls": ["http://picture4is24-a.akamaihd.net/pic/orig04/N/187/830/699/187830699-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?879742816", "http://picture6is24-a.akamaihd.net/pic/orig01/N/187/830/892/187830892-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2554091160", "http://picture9is24-a.akamaihd.net/pic/orig01/N/187/831/36/187831036-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4246575791", "http://picture1is24-a.akamaihd.net/pic/orig01/N/187/831/200/187831200-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2465939616", "http://picture4is24-a.akamaihd.net/pic/orig03/N/187/831/326/187831326-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3079162670", "http://picture4is24-a.akamaihd.net/pic/orig04/N/187/831/475/187831475-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4178171993", "http://picture7is24-a.akamaihd.net/pic/orig03/N/187/831/702/187831702-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?871369494", "http://picture5is24-a.akamaihd.net/pic/orig01/N/187/831/816/187831816-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1705710618", "http://picture6is24-a.akamaihd.net/pic/orig03/N/187/855/822/187855822-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2729901471"],
+            "distanceInKm": 9.814,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "realtorCompanyName": "Hartmann Immobilien",
+            "contactName": "Herr Michael Behler",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "450 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "90 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "3,5"
+                }],
+            "checkedAttributes": ["Provisionsfrei*", "Balkon"],
+            "showAddress": true,
+            "latitude": 51.33339,
+            "longitude": 6.57424,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 79249903,
+            "cwid": "001.837517",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "\" Altbauwohnung mit Flair in stadtnaher Lage \"",
+            "address": "Cracau, Krefeld",
+            "district": "Cracau",
+            "city": "Krefeld",
+            "zip": "47800",
+            "mediaCount": 12,
+            "pictureUrls": ["http://picture9is24-a.akamaihd.net/pic/orig02/N/339/255/621/339255621-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?546951365", "http://picture8is24-a.akamaihd.net/pic/orig04/N/339/255/555/339255555-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?891718487", "http://picture4is24-a.akamaihd.net/pic/orig01/N/339/255/564/339255564-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2481850791", "http://picture3is24-a.akamaihd.net/pic/orig01/N/339/255/580/339255580-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?673678017", "http://picture3is24-a.akamaihd.net/pic/orig01/N/339/255/540/339255540-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1839297194", "http://picture4is24-a.akamaihd.net/pic/orig02/N/339/255/573/339255573-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1419122135", "http://picture8is24-a.akamaihd.net/pic/orig03/N/339/255/530/339255530-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2688137715", "http://picture7is24-a.akamaihd.net/pic/orig04/N/339/255/523/339255523-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1156649659", "http://picture5is24-a.akamaihd.net/pic/orig04/N/339/255/547/339255547-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?539884332", "http://picture3is24-a.akamaihd.net/pic/orig03/N/339/255/586/339255586-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3957376992", "http://picture1is24-a.akamaihd.net/pic/orig04/N/339/255/595/339255595-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2144441120", "http://picture3is24-a.akamaihd.net/pic/orig04/N/339/255/603/339255603-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?541471055"],
+            "distanceInKm": 9.974,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": false,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "realtorLogoForResultlistUrl": "http://picture6is24-a.akamaihd.net/pic/orig03/N/240/146/754/240146754-0.png/ORIG/resize/120x50%3E/quality/80?3279891637",
+            "realtorCompanyName": "Burgi Giesen Immobilien e.K.",
+            "contactName": "Frau Erika Aretz",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "535 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "95 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "3,5"
+                }],
+            "checkedAttributes": ["Balkon"],
+            "showAddress": false,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 80320092,
+            "cwid": "001.8109176",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "Provisionfreie 4-Zimmer-Wohnung mit Balkon zu vermieten",
+            "address": "Uerdinger Str. 204, Cracau, Krefeld",
+            "district": "Cracau",
+            "city": "Krefeld",
+            "zip": "47799",
+            "mediaCount": 9,
+            "pictureUrls": ["http://picture2is24-a.akamaihd.net/pic/orig03/N/352/356/82/352356082-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2908560143", "http://picture9is24-a.akamaihd.net/pic/orig03/N/352/356/86/352356086-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1875668545", "http://picture2is24-a.akamaihd.net/pic/orig02/N/352/356/89/352356089-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1439906600", "http://picture3is24-a.akamaihd.net/pic/orig01/N/352/356/96/352356096-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4147472068", "http://picture5is24-a.akamaihd.net/pic/orig02/N/352/358/829/352358829-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3979162620", "http://picture6is24-a.akamaihd.net/pic/orig04/N/352/356/103/352356103-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1353522586", "http://picture3is24-a.akamaihd.net/pic/orig04/N/352/358/827/352358827-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4103809387", "http://picture6is24-a.akamaihd.net/pic/orig01/N/352/356/108/352356108-0.jpeg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3165146017", "http://picture3is24-a.akamaihd.net/pic/orig04/N/352/356/111/352356111-0.jpeg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1819305129"],
+            "distanceInKm": 10.17,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": false,
+            "hasFloorplan": true,
+            "hasValuation": false,
+            "realtorCompanyName": "P. Köser Immobilien GmbH \u0026 Co. KG",
+            "contactName": "Frau Margarete Mika",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "690 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "92,3 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Provisionsfrei*", "Balkon"],
+            "showAddress": true,
+            "latitude": 51.33815,
+            "longitude": 6.58475,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 80497512,
+            "cwid": "001.9627",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "Bei VIVAWEST die Sonnenstrahlen auf dem eigenen Balkon genießen.",
+            "address": "Lindenstr. 36A, Neukirchen-Vluyn, Wesel (Kreis)",
+            "district": "Neukirchen-Vluyn",
+            "city": "Wesel (Kreis)",
+            "zip": "47506",
+            "mediaCount": 3,
+            "pictureUrls": ["http://picture6is24-a.akamaihd.net/pic/orig03/N/358/702/550/358702550-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?111121065", "http://picture6is24-a.akamaihd.net/pic/orig04/N/358/702/551/358702551-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3515573836", "http://picture8is24-a.akamaihd.net/pic/orig01/N/358/702/552/358702552-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?748557350"],
+            "distanceInKm": 11.114,
+            "hasNewFlag": true,
+            "hasUpdatedFlag": false,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "realtorLogoForResultlistUrl": "http://picture8is24-a.akamaihd.net/pic/orig04/N/261/376/751/261376751-0.jpg/ORIG/resize/120x50%3E/quality/80?4244738924",
+            "realtorCompanyName": "Vivawest Wohnen GmbH",
+            "contactName": "Herr Gerd Pletz",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "405,48 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "81,83 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "3,5"
+                }],
+            "checkedAttributes": ["Provisionsfrei*", "Balkon"],
+            "showAddress": true,
+            "latitude": 51.4509,
+            "longitude": 6.57319,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 80439880,
+            "cwid": "002.01000715262",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "Angebot !!!  Ländliches Wohnen mit viel Platz",
+            "address": "Grefrath, Viersen (Kreis)",
+            "district": "Grefrath",
+            "city": "Viersen (Kreis)",
+            "zip": "47929",
+            "mediaCount": 14,
+            "pictureUrls": ["http://picture4is24-a.akamaihd.net/pic/orig03/N/354/292/474/354292474-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?529169279", "http://picture8is24-a.akamaihd.net/pic/orig01/N/354/292/464/354292464-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2167324888", "http://picture5is24-a.akamaihd.net/pic/orig03/N/354/292/466/354292466-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2176476428", "http://picture8is24-a.akamaihd.net/pic/orig04/N/354/292/471/354292471-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2237186822", "http://picture3is24-a.akamaihd.net/pic/orig02/N/354/292/477/354292477-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2968603934", "http://picture1is24-a.akamaihd.net/pic/orig02/N/354/292/481/354292481-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3027529995", "http://picture8is24-a.akamaihd.net/pic/orig02/N/354/292/485/354292485-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3927613295", "http://picture4is24-a.akamaihd.net/pic/orig02/N/354/292/493/354292493-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4037153979", "http://picture7is24-a.akamaihd.net/pic/orig02/N/354/292/501/354292501-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1726345216", "http://picture2is24-a.akamaihd.net/pic/orig01/N/354/292/508/354292508-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2443859616", "http://picture3is24-a.akamaihd.net/pic/orig03/N/354/292/510/354292510-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2436453247", "http://picture4is24-a.akamaihd.net/pic/orig03/N/354/292/514/354292514-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?354072193", "http://picture9is24-a.akamaihd.net/pic/orig02/N/354/292/521/354292521-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1533361766", "http://picture9is24-a.akamaihd.net/pic/orig01/N/354/292/528/354292528-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?468018138"],
+            "distanceInKm": 11.654,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "realtorLogoForResultlistUrl": "http://picture4is24-a.akamaihd.net/pic/orig02/N/330/157/953/330157953-0.jpg/ORIG/resize/120x50%3E/quality/80?2893963803",
+            "realtorCompanyName": "Immobilien Kessel",
+            "contactName": "Frau Regina Kessel",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "640 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "125 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Balkon"],
+            "idToHide": 79633701,
+            "showAddress": false,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 78527379,
+            "cwid": "001.330132",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "Schöne 4-Zimmer Erdgeschosswohnung auf der Grefrather Str. zu vermieten",
+            "address": "Grefrather Str. 8, Viersen, Viersen (Kreis)",
+            "district": "Viersen",
+            "city": "Viersen (Kreis)",
+            "zip": "41749",
+            "mediaCount": 6,
+            "pictureUrls": ["http://picture8is24-a.akamaihd.net/pic/orig04/N/325/147/163/325147163-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1880498816", "http://picture1is24-a.akamaihd.net/pic/orig01/N/325/147/196/325147196-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?81239689", "http://picture6is24-a.akamaihd.net/pic/orig03/N/325/147/234/325147234-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2604858566", "http://picture1is24-a.akamaihd.net/pic/orig02/N/325/147/273/325147273-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?590634995", "http://picture4is24-a.akamaihd.net/pic/orig01/N/325/147/312/325147312-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2708588617", "http://picture7is24-a.akamaihd.net/pic/orig04/N/325/162/239/325162239-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2598612049"],
+            "distanceInKm": 11.772,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": false,
+            "hasValuation": false,
+            "realtorLogoForResultlistUrl": "http://picture1is24-a.akamaihd.net/pic/orig01/N/220/269/980/220269980-0.jpg/ORIG/resize/120x50%3E/quality/80?1018297626",
+            "realtorCompanyName": "Matthias Schmitz Hausverwaltung  GmbH",
+            "contactName": "Frau Sabrina Zepter",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "510 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "84,45 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "4"
+                }],
+            "checkedAttributes": ["Provisionsfrei*", "Balkon", "Garten"],
+            "showAddress": true,
+            "latitude": 51.28959,
+            "longitude": 6.36672,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 76902582,
+            "cwid": "001.1041380",
+            "shortlisted": false,
+            "privateOffer": false,
+            "title": "5-Zimmerwohnung im Zweifamilienhaus in ländlicher Wohnlage",
+            "address": "Straelen, Kleve (Kreis)",
+            "district": "Straelen",
+            "city": "Kleve (Kreis)",
+            "zip": "47638",
+            "mediaCount": 8,
+            "pictureUrls": ["http://picture4is24-a.akamaihd.net/pic/orig01/N/346/889/972/346889972-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?526470921", "http://picture4is24-a.akamaihd.net/pic/orig01/N/346/889/992/346889992-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2104736166", "http://picture9is24-a.akamaihd.net/pic/orig04/N/346/889/999/346889999-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2447207480", "http://picture7is24-a.akamaihd.net/pic/orig01/N/346/890/12/346890012-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2997708596", "http://picture5is24-a.akamaihd.net/pic/orig03/N/346/890/22/346890022-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?786593510", "http://picture9is24-a.akamaihd.net/pic/orig02/N/346/890/53/346890053-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1238115687", "http://picture7is24-a.akamaihd.net/pic/orig04/N/346/890/67/346890067-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?607485897", "http://picture9is24-a.akamaihd.net/pic/orig04/N/346/890/83/346890083-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2079193518"],
+            "distanceInKm": 13.027,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": true,
+            "hasValuation": false,
+            "realtorCompanyName": "van Megen Immobilien GmbH",
+            "contactName": " Annabel Nagel",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "595 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "125,56 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "5"
+                }],
+            "checkedAttributes": ["Balkon"],
+            "showAddress": false,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }, {
+            "id": 74776235,
+            "cwid": "001.16153730",
+            "shortlisted": false,
+            "privateOffer": true,
+            "title": "Provisionsfrei !! Ruhig gelegene helle Südwohnung mit Balkon und Garten",
+            "address": "Joseph-Görres-Straße 5, Uerdingen, Krefeld",
+            "district": "Uerdingen",
+            "city": "Krefeld",
+            "zip": "47829",
+            "mediaCount": 17,
+            "pictureUrls": ["http://picture4is24-a.akamaihd.net/pic/orig04/N/258/74/883/258074883-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?290300605", "http://picture9is24-a.akamaihd.net/pic/orig04/N/258/74/775/258074775-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2072257965", "http://picture3is24-a.akamaihd.net/pic/orig02/N/266/413/697/266413697-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?46314795", "http://picture2is24-a.akamaihd.net/pic/orig01/N/266/413/716/266413716-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3141721659", "http://picture2is24-a.akamaihd.net/pic/orig02/N/266/413/645/266413645-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2018458908", "http://picture8is24-a.akamaihd.net/pic/orig04/N/266/413/815/266413815-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?693757803", "http://picture5is24-a.akamaihd.net/pic/orig04/N/266/413/791/266413791-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?4182754803", "http://picture9is24-a.akamaihd.net/pic/orig04/N/266/413/751/266413751-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3519311910", "http://picture2is24-a.akamaihd.net/pic/orig01/N/258/74/504/258074504-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2999672136", "http://picture3is24-a.akamaihd.net/pic/orig04/N/266/413/879/266413879-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3280106571", "http://picture2is24-a.akamaihd.net/pic/orig02/N/266/413/677/266413677-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2644668025", "http://picture1is24-a.akamaihd.net/pic/orig01/N/266/413/664/266413664-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?2252262162", "http://picture2is24-a.akamaihd.net/pic/orig02/N/266/413/841/266413841-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1348692775", "http://picture4is24-a.akamaihd.net/pic/orig03/N/258/74/842/258074842-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1148671071", "http://picture9is24-a.akamaihd.net/pic/orig04/N/258/74/815/258074815-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?316581470", "http://picture4is24-a.akamaihd.net/pic/orig02/N/270/477/117/270477117-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?3382740979", "http://picture6is24-a.akamaihd.net/pic/orig03/N/270/477/138/270477138-0.jpg/ORIG/legacy_thumbnail/300x225/format/jpg/quality/80?1562646293"],
+            "distanceInKm": 13.609,
+            "hasNewFlag": false,
+            "hasUpdatedFlag": true,
+            "hasFloorplan": true,
+            "hasValuation": false,
+            "contactName": " direkt vom Eigentümer",
+            "referrer": ["RESULT_LIST_LISTING"],
+            "attributes": [{
+                    "title": "Kaltmiete",
+                    "value": "575 €"
+                }, {
+                    "title": "Wohnfläche",
+                    "value": "92 m²"
+                }, {
+                    "title": "Zimmer",
+                    "value": "3,5"
+                }],
+            "checkedAttributes": ["Provisionsfrei*", "Balkon", "Garten"],
+            "showAddress": true,
+            "latitude": 51.35227,
+            "longitude": 6.64674,
+            "listingSize": "m",
+            "isProject": false,
+            "similarResults": []
+        }]
+}
